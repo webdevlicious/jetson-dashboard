@@ -4,6 +4,9 @@ export interface BaseFeature {
   name: string
   enabled: boolean
   requiresPermission: boolean
+  usageCount: number
+  lastAccessed: Date | null
+  analyticsEnabled: boolean
 }
 
 export interface MetricCard {
@@ -32,7 +35,6 @@ export interface DashboardFeatures {
   coach: {
     teamManagement: BaseFeature
     playerDevelopment: BaseFeature
-    gameStrategy: BaseFeature
     performanceAnalytics: BaseFeature
     metrics: MetricCard[]
   }
@@ -53,24 +55,30 @@ export interface DashboardFeatures {
 }
 
 export const getRoleFeatures = (role: DashboardType): Partial<DashboardFeatures> => {
+  const baseFeatureDefaults = {
+    usageCount: 0,
+    lastAccessed: null,
+    analyticsEnabled: true
+  }
+
   switch (role) {
     case 'athlete':
       return {
         athlete: {
-          performanceTracking: { name: 'Performance Tracking', enabled: true, requiresPermission: false },
-          recruitmentProgress: { name: 'Recruitment Progress', enabled: true, requiresPermission: false },
-          teamActivities: { name: 'Team Activities', enabled: true, requiresPermission: false },
-          trainingSchedule: { name: 'Training Schedule', enabled: true, requiresPermission: false },
+          performanceTracking: { name: 'Performance Tracking', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          recruitmentProgress: { name: 'Recruitment Progress', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          teamActivities: { name: 'Team Activities', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          trainingSchedule: { name: 'Training Schedule', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
           metrics: []
         }
       }
     case 'scout':
       return {
         scout: {
-          talentEvaluation: { name: 'Talent Evaluation', enabled: true, requiresPermission: false },
-          recruitmentReports: { name: 'Recruitment Reports', enabled: true, requiresPermission: true },
-          eventScheduling: { name: 'Event Scheduling', enabled: true, requiresPermission: false },
-          athleteDatabase: { name: 'Athlete Database', enabled: true, requiresPermission: true },
+          talentEvaluation: { name: 'Talent Evaluation', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          recruitmentReports: { name: 'Recruitment Reports', enabled: true, requiresPermission: true, ...baseFeatureDefaults },
+          eventScheduling: { name: 'Event Scheduling', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          athleteDatabase: { name: 'Athlete Database', enabled: true, requiresPermission: true, ...baseFeatureDefaults },
           metrics: []
         }
       }

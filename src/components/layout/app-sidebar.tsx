@@ -8,7 +8,10 @@ import {
 import { NavGroup } from '@/components/layout/nav-group'
 import { NavUser } from '@/components/layout/nav-user'
 import { TeamSwitcher } from '@/components/layout/team-switcher'
-import { sidebarData } from './data/sidebar-data'
+import { athleteSidebarData } from './data/athlete-sidebar-data'
+import { parentSidebarData } from './data/parent-sidebar-data'
+import { scoutSidebarData } from './data/scout-sidebar-data'
+import { coachSidebarData } from './data/coach-sidebar-data'
 import { DashboardType, isDashboardWithTeamSwitcher } from './types/dashboard'
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
@@ -20,16 +23,31 @@ export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProp
     <Sidebar collapsible='icon' variant='floating' {...props}>
       <SidebarHeader>
         {isDashboardWithTeamSwitcher(dashboardType) && (
-          <TeamSwitcher teams={sidebarData.teams} />
+          <TeamSwitcher teams={(dashboardType === 'athlete' ? athleteSidebarData :
+            dashboardType === 'parent' ? parentSidebarData :
+            dashboardType === 'scout' ? scoutSidebarData :
+            dashboardType === 'coach' ? coachSidebarData :
+            athleteSidebarData
+          ).teams} />
         )}
       </SidebarHeader>
       <SidebarContent>
-        {sidebarData.navGroups.map((props) => (
+        {(dashboardType === 'athlete' ? athleteSidebarData :
+          dashboardType === 'parent' ? parentSidebarData :
+          dashboardType === 'scout' ? scoutSidebarData :
+          dashboardType === 'coach' ? coachSidebarData :
+          athleteSidebarData
+        ).navGroups.map((props) => (
           <NavGroup key={props.title} {...props} />
         ))}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={sidebarData.user} />
+        <NavUser user={(dashboardType === 'athlete' ? athleteSidebarData :
+          dashboardType === 'parent' ? parentSidebarData :
+          dashboardType === 'scout' ? scoutSidebarData :
+          dashboardType === 'coach' ? coachSidebarData :
+          athleteSidebarData
+        ).user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

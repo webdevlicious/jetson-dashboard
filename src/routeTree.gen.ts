@@ -18,6 +18,8 @@ import { Route as AuthenticatedIndexImport } from './routes/_authenticated/index
 import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as auth500Import } from './routes/(auth)/500'
+import { Route as AuthenticatedTrainerTrainingIndexImport } from './routes/_authenticated/trainer/training/index'
+import { Route as AuthenticatedTrainerTrainingProgressIndexImport } from './routes/_authenticated/trainer/training/progress/index'
 
 // Create Virtual Routes
 
@@ -63,6 +65,36 @@ const AuthenticatedSettingsAppearanceLazyImport = createFileRoute(
 )()
 const AuthenticatedSettingsAccountLazyImport = createFileRoute(
   '/_authenticated/settings/account',
+)()
+const AuthenticatedParentReportsIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/reports/',
+)()
+const AuthenticatedParentOverviewIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/overview/',
+)()
+const AuthenticatedParentNotificationsIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/notifications/',
+)()
+const AuthenticatedParentDevelopmentIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/development/',
+)()
+const AuthenticatedParentChildrenIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/children/',
+)()
+const AuthenticatedParentBillingIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/billing/',
+)()
+const AuthenticatedParentActivitiesIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/activities/',
+)()
+const AuthenticatedParentAchievementsIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/achievements/',
+)()
+const AuthenticatedParentAcademicIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/academic/',
+)()
+const AuthenticatedParentSettingsAccountIndexLazyImport = createFileRoute(
+  '/_authenticated/parent/settings/account/',
 )()
 
 // Create/Update Routes
@@ -272,6 +304,130 @@ const AuthenticatedSettingsAccountLazyRoute =
     ),
   )
 
+const AuthenticatedParentReportsIndexLazyRoute =
+  AuthenticatedParentReportsIndexLazyImport.update({
+    id: '/parent/reports/',
+    path: '/parent/reports/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/reports/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentOverviewIndexLazyRoute =
+  AuthenticatedParentOverviewIndexLazyImport.update({
+    id: '/parent/overview/',
+    path: '/parent/overview/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/overview/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentNotificationsIndexLazyRoute =
+  AuthenticatedParentNotificationsIndexLazyImport.update({
+    id: '/parent/notifications/',
+    path: '/parent/notifications/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/notifications/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentDevelopmentIndexLazyRoute =
+  AuthenticatedParentDevelopmentIndexLazyImport.update({
+    id: '/parent/development/',
+    path: '/parent/development/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/development/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentChildrenIndexLazyRoute =
+  AuthenticatedParentChildrenIndexLazyImport.update({
+    id: '/parent/children/',
+    path: '/parent/children/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/children/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentBillingIndexLazyRoute =
+  AuthenticatedParentBillingIndexLazyImport.update({
+    id: '/parent/billing/',
+    path: '/parent/billing/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/billing/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentActivitiesIndexLazyRoute =
+  AuthenticatedParentActivitiesIndexLazyImport.update({
+    id: '/parent/activities/',
+    path: '/parent/activities/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/activities/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentAchievementsIndexLazyRoute =
+  AuthenticatedParentAchievementsIndexLazyImport.update({
+    id: '/parent/achievements/',
+    path: '/parent/achievements/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/achievements/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedParentAcademicIndexLazyRoute =
+  AuthenticatedParentAcademicIndexLazyImport.update({
+    id: '/parent/academic/',
+    path: '/parent/academic/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/academic/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedTrainerTrainingIndexRoute =
+  AuthenticatedTrainerTrainingIndexImport.update({
+    id: '/trainer/training/',
+    path: '/trainer/training/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedParentSettingsAccountIndexLazyRoute =
+  AuthenticatedParentSettingsAccountIndexLazyImport.update({
+    id: '/parent/settings/account/',
+    path: '/parent/settings/account/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/parent/settings/account/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedTrainerTrainingProgressIndexRoute =
+  AuthenticatedTrainerTrainingProgressIndexImport.update({
+    id: '/trainer/training/progress/',
+    path: '/trainer/training/progress/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -444,6 +600,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedUsersIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/trainer/training/': {
+      id: '/_authenticated/trainer/training/'
+      path: '/trainer/training'
+      fullPath: '/trainer/training'
+      preLoaderRoute: typeof AuthenticatedTrainerTrainingIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/academic/': {
+      id: '/_authenticated/parent/academic/'
+      path: '/parent/academic'
+      fullPath: '/parent/academic'
+      preLoaderRoute: typeof AuthenticatedParentAcademicIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/achievements/': {
+      id: '/_authenticated/parent/achievements/'
+      path: '/parent/achievements'
+      fullPath: '/parent/achievements'
+      preLoaderRoute: typeof AuthenticatedParentAchievementsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/activities/': {
+      id: '/_authenticated/parent/activities/'
+      path: '/parent/activities'
+      fullPath: '/parent/activities'
+      preLoaderRoute: typeof AuthenticatedParentActivitiesIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/billing/': {
+      id: '/_authenticated/parent/billing/'
+      path: '/parent/billing'
+      fullPath: '/parent/billing'
+      preLoaderRoute: typeof AuthenticatedParentBillingIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/children/': {
+      id: '/_authenticated/parent/children/'
+      path: '/parent/children'
+      fullPath: '/parent/children'
+      preLoaderRoute: typeof AuthenticatedParentChildrenIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/development/': {
+      id: '/_authenticated/parent/development/'
+      path: '/parent/development'
+      fullPath: '/parent/development'
+      preLoaderRoute: typeof AuthenticatedParentDevelopmentIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/notifications/': {
+      id: '/_authenticated/parent/notifications/'
+      path: '/parent/notifications'
+      fullPath: '/parent/notifications'
+      preLoaderRoute: typeof AuthenticatedParentNotificationsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/overview/': {
+      id: '/_authenticated/parent/overview/'
+      path: '/parent/overview'
+      fullPath: '/parent/overview'
+      preLoaderRoute: typeof AuthenticatedParentOverviewIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/reports/': {
+      id: '/_authenticated/parent/reports/'
+      path: '/parent/reports'
+      fullPath: '/parent/reports'
+      preLoaderRoute: typeof AuthenticatedParentReportsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/trainer/training/progress/': {
+      id: '/_authenticated/trainer/training/progress/'
+      path: '/trainer/training/progress'
+      fullPath: '/trainer/training/progress'
+      preLoaderRoute: typeof AuthenticatedTrainerTrainingProgressIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/parent/settings/account/': {
+      id: '/_authenticated/parent/settings/account/'
+      path: '/parent/settings/account'
+      fullPath: '/parent/settings/account'
+      preLoaderRoute: typeof AuthenticatedParentSettingsAccountIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
   }
 }
 
@@ -483,6 +723,18 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
+  AuthenticatedTrainerTrainingIndexRoute: typeof AuthenticatedTrainerTrainingIndexRoute
+  AuthenticatedParentAcademicIndexLazyRoute: typeof AuthenticatedParentAcademicIndexLazyRoute
+  AuthenticatedParentAchievementsIndexLazyRoute: typeof AuthenticatedParentAchievementsIndexLazyRoute
+  AuthenticatedParentActivitiesIndexLazyRoute: typeof AuthenticatedParentActivitiesIndexLazyRoute
+  AuthenticatedParentBillingIndexLazyRoute: typeof AuthenticatedParentBillingIndexLazyRoute
+  AuthenticatedParentChildrenIndexLazyRoute: typeof AuthenticatedParentChildrenIndexLazyRoute
+  AuthenticatedParentDevelopmentIndexLazyRoute: typeof AuthenticatedParentDevelopmentIndexLazyRoute
+  AuthenticatedParentNotificationsIndexLazyRoute: typeof AuthenticatedParentNotificationsIndexLazyRoute
+  AuthenticatedParentOverviewIndexLazyRoute: typeof AuthenticatedParentOverviewIndexLazyRoute
+  AuthenticatedParentReportsIndexLazyRoute: typeof AuthenticatedParentReportsIndexLazyRoute
+  AuthenticatedTrainerTrainingProgressIndexRoute: typeof AuthenticatedTrainerTrainingProgressIndexRoute
+  AuthenticatedParentSettingsAccountIndexLazyRoute: typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -494,6 +746,30 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
+  AuthenticatedTrainerTrainingIndexRoute:
+    AuthenticatedTrainerTrainingIndexRoute,
+  AuthenticatedParentAcademicIndexLazyRoute:
+    AuthenticatedParentAcademicIndexLazyRoute,
+  AuthenticatedParentAchievementsIndexLazyRoute:
+    AuthenticatedParentAchievementsIndexLazyRoute,
+  AuthenticatedParentActivitiesIndexLazyRoute:
+    AuthenticatedParentActivitiesIndexLazyRoute,
+  AuthenticatedParentBillingIndexLazyRoute:
+    AuthenticatedParentBillingIndexLazyRoute,
+  AuthenticatedParentChildrenIndexLazyRoute:
+    AuthenticatedParentChildrenIndexLazyRoute,
+  AuthenticatedParentDevelopmentIndexLazyRoute:
+    AuthenticatedParentDevelopmentIndexLazyRoute,
+  AuthenticatedParentNotificationsIndexLazyRoute:
+    AuthenticatedParentNotificationsIndexLazyRoute,
+  AuthenticatedParentOverviewIndexLazyRoute:
+    AuthenticatedParentOverviewIndexLazyRoute,
+  AuthenticatedParentReportsIndexLazyRoute:
+    AuthenticatedParentReportsIndexLazyRoute,
+  AuthenticatedTrainerTrainingProgressIndexRoute:
+    AuthenticatedTrainerTrainingProgressIndexRoute,
+  AuthenticatedParentSettingsAccountIndexLazyRoute:
+    AuthenticatedParentSettingsAccountIndexLazyRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -523,6 +799,18 @@ export interface FileRoutesByFullPath {
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/trainer/training': typeof AuthenticatedTrainerTrainingIndexRoute
+  '/parent/academic': typeof AuthenticatedParentAcademicIndexLazyRoute
+  '/parent/achievements': typeof AuthenticatedParentAchievementsIndexLazyRoute
+  '/parent/activities': typeof AuthenticatedParentActivitiesIndexLazyRoute
+  '/parent/billing': typeof AuthenticatedParentBillingIndexLazyRoute
+  '/parent/children': typeof AuthenticatedParentChildrenIndexLazyRoute
+  '/parent/development': typeof AuthenticatedParentDevelopmentIndexLazyRoute
+  '/parent/notifications': typeof AuthenticatedParentNotificationsIndexLazyRoute
+  '/parent/overview': typeof AuthenticatedParentOverviewIndexLazyRoute
+  '/parent/reports': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/trainer/training/progress': typeof AuthenticatedTrainerTrainingProgressIndexRoute
+  '/parent/settings/account': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
@@ -547,6 +835,18 @@ export interface FileRoutesByTo {
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/trainer/training': typeof AuthenticatedTrainerTrainingIndexRoute
+  '/parent/academic': typeof AuthenticatedParentAcademicIndexLazyRoute
+  '/parent/achievements': typeof AuthenticatedParentAchievementsIndexLazyRoute
+  '/parent/activities': typeof AuthenticatedParentActivitiesIndexLazyRoute
+  '/parent/billing': typeof AuthenticatedParentBillingIndexLazyRoute
+  '/parent/children': typeof AuthenticatedParentChildrenIndexLazyRoute
+  '/parent/development': typeof AuthenticatedParentDevelopmentIndexLazyRoute
+  '/parent/notifications': typeof AuthenticatedParentNotificationsIndexLazyRoute
+  '/parent/overview': typeof AuthenticatedParentOverviewIndexLazyRoute
+  '/parent/reports': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/trainer/training/progress': typeof AuthenticatedTrainerTrainingProgressIndexRoute
+  '/parent/settings/account': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
 
 export interface FileRoutesById {
@@ -575,6 +875,18 @@ export interface FileRoutesById {
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
+  '/_authenticated/trainer/training/': typeof AuthenticatedTrainerTrainingIndexRoute
+  '/_authenticated/parent/academic/': typeof AuthenticatedParentAcademicIndexLazyRoute
+  '/_authenticated/parent/achievements/': typeof AuthenticatedParentAchievementsIndexLazyRoute
+  '/_authenticated/parent/activities/': typeof AuthenticatedParentActivitiesIndexLazyRoute
+  '/_authenticated/parent/billing/': typeof AuthenticatedParentBillingIndexLazyRoute
+  '/_authenticated/parent/children/': typeof AuthenticatedParentChildrenIndexLazyRoute
+  '/_authenticated/parent/development/': typeof AuthenticatedParentDevelopmentIndexLazyRoute
+  '/_authenticated/parent/notifications/': typeof AuthenticatedParentNotificationsIndexLazyRoute
+  '/_authenticated/parent/overview/': typeof AuthenticatedParentOverviewIndexLazyRoute
+  '/_authenticated/parent/reports/': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/_authenticated/trainer/training/progress/': typeof AuthenticatedTrainerTrainingProgressIndexRoute
+  '/_authenticated/parent/settings/account/': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
 
 export interface FileRouteTypes {
@@ -603,6 +915,18 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/tasks'
     | '/users'
+    | '/trainer/training'
+    | '/parent/academic'
+    | '/parent/achievements'
+    | '/parent/activities'
+    | '/parent/billing'
+    | '/parent/children'
+    | '/parent/development'
+    | '/parent/notifications'
+    | '/parent/overview'
+    | '/parent/reports'
+    | '/trainer/training/progress'
+    | '/parent/settings/account'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/500'
@@ -626,6 +950,18 @@ export interface FileRouteTypes {
     | '/settings'
     | '/tasks'
     | '/users'
+    | '/trainer/training'
+    | '/parent/academic'
+    | '/parent/achievements'
+    | '/parent/activities'
+    | '/parent/billing'
+    | '/parent/children'
+    | '/parent/development'
+    | '/parent/notifications'
+    | '/parent/overview'
+    | '/parent/reports'
+    | '/trainer/training/progress'
+    | '/parent/settings/account'
   id:
     | '__root__'
     | '/_authenticated'
@@ -652,6 +988,18 @@ export interface FileRouteTypes {
     | '/_authenticated/settings/'
     | '/_authenticated/tasks/'
     | '/_authenticated/users/'
+    | '/_authenticated/trainer/training/'
+    | '/_authenticated/parent/academic/'
+    | '/_authenticated/parent/achievements/'
+    | '/_authenticated/parent/activities/'
+    | '/_authenticated/parent/billing/'
+    | '/_authenticated/parent/children/'
+    | '/_authenticated/parent/development/'
+    | '/_authenticated/parent/notifications/'
+    | '/_authenticated/parent/overview/'
+    | '/_authenticated/parent/reports/'
+    | '/_authenticated/trainer/training/progress/'
+    | '/_authenticated/parent/settings/account/'
   fileRoutesById: FileRoutesById
 }
 
@@ -718,7 +1066,19 @@ export const routeTree = rootRoute
         "/_authenticated/chats/",
         "/_authenticated/help-center/",
         "/_authenticated/tasks/",
-        "/_authenticated/users/"
+        "/_authenticated/users/",
+        "/_authenticated/trainer/training/",
+        "/_authenticated/parent/academic/",
+        "/_authenticated/parent/achievements/",
+        "/_authenticated/parent/activities/",
+        "/_authenticated/parent/billing/",
+        "/_authenticated/parent/children/",
+        "/_authenticated/parent/development/",
+        "/_authenticated/parent/notifications/",
+        "/_authenticated/parent/overview/",
+        "/_authenticated/parent/reports/",
+        "/_authenticated/trainer/training/progress/",
+        "/_authenticated/parent/settings/account/"
       ]
     },
     "/(auth)/500": {
@@ -807,6 +1167,54 @@ export const routeTree = rootRoute
     },
     "/_authenticated/users/": {
       "filePath": "_authenticated/users/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/trainer/training/": {
+      "filePath": "_authenticated/trainer/training/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/academic/": {
+      "filePath": "_authenticated/parent/academic/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/achievements/": {
+      "filePath": "_authenticated/parent/achievements/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/activities/": {
+      "filePath": "_authenticated/parent/activities/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/billing/": {
+      "filePath": "_authenticated/parent/billing/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/children/": {
+      "filePath": "_authenticated/parent/children/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/development/": {
+      "filePath": "_authenticated/parent/development/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/notifications/": {
+      "filePath": "_authenticated/parent/notifications/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/overview/": {
+      "filePath": "_authenticated/parent/overview/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/reports/": {
+      "filePath": "_authenticated/parent/reports/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/trainer/training/progress/": {
+      "filePath": "_authenticated/trainer/training/progress/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/parent/settings/account/": {
+      "filePath": "_authenticated/parent/settings/account/index.lazy.tsx",
       "parent": "/_authenticated"
     }
   }
