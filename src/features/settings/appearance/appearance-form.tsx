@@ -53,8 +53,8 @@ export function AppearanceForm() {
     toast({
       title: 'You submitted the following values:',
       description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
+        <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
+          <code className='text-primary-foreground'>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
     })
@@ -115,18 +115,18 @@ export function AppearanceForm() {
                       <RadioGroupItem value='light' className='sr-only' />
                     </FormControl>
                     <div className='items-center rounded-md border-2 border-muted p-1 hover:border-accent'>
-                      <div className='space-y-2 rounded-sm bg-[#ecedef] p-2'>
+                      <div className='space-y-2 rounded-sm bg-muted p-2'>
                         <div className='space-y-2 rounded-md bg-white p-2 shadow-sm'>
-                          <div className='h-2 w-[80px] rounded-lg bg-[#ecedef]' />
-                          <div className='h-2 w-[100px] rounded-lg bg-[#ecedef]' />
+                          <div className='h-2 w-[80px] rounded-lg bg-muted' />
+                          <div className='h-2 w-[100px] rounded-lg bg-muted' />
                         </div>
                         <div className='flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm'>
-                          <div className='h-4 w-4 rounded-full bg-[#ecedef]' />
-                          <div className='h-2 w-[100px] rounded-lg bg-[#ecedef]' />
+                          <div className='h-4 w-4 rounded-full bg-muted' />
+                          <div className='h-2 w-[100px] rounded-lg bg-muted' />
                         </div>
                         <div className='flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm'>
-                          <div className='h-4 w-4 rounded-full bg-[#ecedef]' />
-                          <div className='h-2 w-[100px] rounded-lg bg-[#ecedef]' />
+                          <div className='h-4 w-4 rounded-full bg-muted' />
+                          <div className='h-2 w-[100px] rounded-lg bg-muted' />
                         </div>
                       </div>
                     </div>
@@ -141,18 +141,18 @@ export function AppearanceForm() {
                       <RadioGroupItem value='dark' className='sr-only' />
                     </FormControl>
                     <div className='items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground'>
-                      <div className='space-y-2 rounded-sm bg-slate-950 p-2'>
-                        <div className='space-y-2 rounded-md bg-slate-800 p-2 shadow-sm'>
-                          <div className='h-2 w-[80px] rounded-lg bg-slate-400' />
-                          <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
+                      <div className='space-y-2 rounded-sm bg-background p-2'>
+                        <div className='space-y-2 rounded-md bg-card p-2 shadow-sm'>
+                          <div className='h-2 w-[80px] rounded-lg bg-secondary' />
+                          <div className='h-2 w-[100px] rounded-lg bg-secondary' />
                         </div>
-                        <div className='flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm'>
-                          <div className='h-4 w-4 rounded-full bg-slate-400' />
-                          <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
+                        <div className='flex items-center space-x-2 rounded-md bg-card p-2 shadow-sm'>
+                          <div className='h-4 w-4 rounded-full bg-secondary' />
+                          <div className='h-2 w-[100px] rounded-lg bg-secondary' />
                         </div>
-                        <div className='flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm'>
-                          <div className='h-4 w-4 rounded-full bg-slate-400' />
-                          <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
+                        <div className='flex items-center space-x-2 rounded-md bg-card p-2 shadow-sm'>
+                          <div className='h-4 w-4 rounded-full bg-secondary' />
+                          <div className='h-2 w-[100px] rounded-lg bg-secondary' />
                         </div>
                       </div>
                     </div>

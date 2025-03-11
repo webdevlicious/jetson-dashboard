@@ -1,0 +1,32 @@
+# Python dependencies for JetsonRecruit_Ai
+
+# Note: This project is primarily a React/TypeScript frontend application.
+# The following dependencies would only be needed if you're developing a Python backend
+# component or API service to work with this frontend.
+
+# Web framework (for potential backend API)
+# flask==2.3.3
+# flask-cors==4.0.0
+
+# API and data handling (if needed for data processing)
+# requests==2.31.0
+# pandas==2.1.1
+# numpy==1.26.0
+
+# Database (if needed for backend)
+# sqlalchemy==2.0.23
+# psycopg2-binary==2.9.9
+
+# ML/AI (if implementing AI features)
+# scikit-learn==1.3.2
+# tensorflow==2.15.0
+
+# Utilities
+python-dotenv==1.0.0  # For environment variable management
+
+# Development tools (if using Python for any scripts)
+pylint==3.0.2
+black==23.10.1
+
+# Testing (if testing Python components)
+pytest==7.4.3

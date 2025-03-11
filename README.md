@@ -1,12 +1,12 @@
-# Shadcn Admin Dashboard
+# Jetson Recruit AI Dashboard
 
-Admin Dashboard UI crafted with Shadcn and Vite. Built with responsiveness and accessibility in mind.
+College Sports Recruiting Dashboard powered by AI. Putting college sports recruitment on auto-pilot for parents and student athletes looking to gain exposure from colleges and receive college scholarships and NIL opportunities.
 
 ![alt text](public/images/shadcn-admin.png)
 
-I've been creating dashboard UIs at work and for my personal projects. I always wanted to make a reusable collection of dashboard UI for future projects; and here it is now. While I've created a few custom components, some of the code is directly adapted from ShadcnUI examples.
+This dashboard provides a comprehensive platform for student athletes to showcase their talents, track their recruitment progress, and connect with college programs. Built with responsiveness and accessibility in mind, it streamlines the complex college recruitment process through AI-driven insights and automation.
 
-> This is not a starter project (template) though. I'll probably make one in the future.
+> This platform helps student athletes navigate the challenging recruitment landscape with ease and efficiency.
 
 ## Features
 
@@ -17,6 +17,10 @@ I've been creating dashboard UIs at work and for my personal projects. I always 
 - Global Search Command
 - 10+ pages
 - Extra custom components
+- AI-powered recruitment tracking
+- College program matching
+- Scholarship opportunity alerts
+- NIL potential assessment
 
 ## Tech Stack
 
@@ -37,13 +41,13 @@ I've been creating dashboard UIs at work and for my personal projects. I always 
 Clone the project
 
 ```bash
-  git clone https://github.com/satnaing/shadcn-admin.git
+  git clone https://github.com/webdevlicious/jetson-recruit-ai.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd shadcn-admin
+  cd jetson-recruit-ai
 ```
 
 Install dependencies
@@ -60,7 +64,7 @@ Start the server
 
 ## Author
 
-Crafted with 🤍 by [@satnaing](https://github.com/satnaing)
+CACH Dev Partners
 
 ## License
 

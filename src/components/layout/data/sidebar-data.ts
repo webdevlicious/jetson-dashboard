@@ -24,13 +24,13 @@ import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
   user: {
-    name: 'satnaing',
-    email: 'satnaingdev@gmail.com',
+    name: 'Allison Jefferson',
+    email: 'a.jefferson@brickertape.com',
     avatar: '/avatars/shadcn.jpg',
   },
   teams: [
     {
-      name: 'Shadcn Admin',
+      name: 'Taylor Jefferson III',
       logo: Command,
       plan: 'Vite + ShadcnUI',
     },
@@ -56,6 +56,11 @@ export const sidebarData: SidebarData = {
         },
         {
           title: 'Tasks',
+          url: '/tasks',
+          icon: IconChecklist,
+        },
+        {
+          title: 'Athlete-Dashboard',
           url: '/tasks',
           icon: IconChecklist,
         },

@@ -9,12 +9,19 @@ import { NavGroup } from '@/components/layout/nav-group'
 import { NavUser } from '@/components/layout/nav-user'
 import { TeamSwitcher } from '@/components/layout/team-switcher'
 import { sidebarData } from './data/sidebar-data'
+import { DashboardType, isDashboardWithTeamSwitcher } from './types/dashboard'
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  dashboardType?: DashboardType
+}
+
+export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProps) {
   return (
     <Sidebar collapsible='icon' variant='floating' {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={sidebarData.teams} />
+        {isDashboardWithTeamSwitcher(dashboardType) && (
+          <TeamSwitcher teams={sidebarData.teams} />
+        )}
       </SidebarHeader>
       <SidebarContent>
         {sidebarData.navGroups.map((props) => (

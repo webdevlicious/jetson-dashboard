@@ -37,14 +37,17 @@ export function TeamSwitcher({
               size='lg'
               className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
             >
-              <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
-                <activeTeam.logo className='size-4' />
+              <div className='flex aspect-square size-8 items-center justify-center rounded-lg'>
+                <img
+                  src={isMobile ? '/images/logo_icon.png' : '/images/logo.png'}
+                  alt={activeTeam.name}
+                  className='size-full object-contain'
+                />
               </div>
               <div className='grid flex-1 text-left text-sm leading-tight'>
                 <span className='truncate font-semibold'>
                   {activeTeam.name}
                 </span>
-                <span className='truncate text-xs'>{activeTeam.plan}</span>
               </div>
               <ChevronsUpDown className='ml-auto' />
             </SidebarMenuButton>
@@ -56,7 +59,7 @@ export function TeamSwitcher({
             sideOffset={4}
           >
             <DropdownMenuLabel className='text-xs text-muted-foreground'>
-              Teams
+              Accounts:
             </DropdownMenuLabel>
             {teams.map((team, index) => (
               <DropdownMenuItem

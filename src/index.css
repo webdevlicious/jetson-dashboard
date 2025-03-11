@@ -4,65 +4,68 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Jetson Light Theme */
+    /* Primary: Vulcan for light mode */
+    --background: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --foreground: 16 17 29; /* Vulcan #10111D */
+    --card: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --card-foreground: 16 17 29; /* Vulcan #10111D */
+    --popover: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --popover-foreground: 16 17 29; /* Vulcan #10111D */
+    --primary: 16 17 29; /* Vulcan #10111D */
+    --primary-foreground: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --secondary: 184 188 211; /* Violet Haze #B8BCD3 */
+    --secondary-foreground: 16 17 29; /* Vulcan #10111D */
+    --muted: 229 229 232; /* Violet Haze with 20% opacity */
+    --muted-foreground: 102 102 102; /* Vulcan with 40% opacity */
+    --accent: 86 247 153; /* Shamrock #56F799 */
+    --accent-foreground: 16 17 29; /* Vulcan #10111D */
+    --destructive: 255 19 240; /* Electric Fuchsia #FF13F0 */
+    --destructive-foreground: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --border: 216 218 230; /* Violet Haze with 15% opacity */
+    --input: 216 218 230; /* Violet Haze with 15% opacity */
+    --ring: 86 247 153; /* Shamrock #56F799 */
+    --chart-1: 86 247 153; /* Shamrock #56F799 */
+    --chart-2: 255 19 240; /* Electric Fuchsia #FF13F0 */
+    --chart-3: 0 255 121; /* Spring Green #00FF79 */
+    --chart-4: 184 188 211; /* Violet Haze #B8BCD3 */
+    --chart-5: 16 17 29; /* Vulcan #10111D */
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --sidebar-foreground: 16 17 29; /* Vulcan with 80% opacity */
+    --sidebar-primary: 16 17 29; /* Vulcan #10111D */
+    --sidebar-primary-foreground: 249 249 252; /* Light background (Vulcan with 5% opacity) */
+    --sidebar-accent: 86 247 153; /* Shamrock #56F799 */
+    --sidebar-accent-foreground: 16 17 29; /* Vulcan #10111D */
+    --sidebar-border: 216 218 230; /* Violet Haze with 15% opacity */
+    --sidebar-ring: 86 247 153; /* Shamrock #56F799 */
   }
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* Jetson Dark Theme */
+    --background: 16 17 29; /* Vulcan #10111D */
+    --foreground: 184 188 211; /* Violet Haze #B8BCD3 */
+    --card: 16 17 29; /* Vulcan #10111D */
+    --card-foreground: 184 188 211; /* Violet Haze #B8BCD3 */
+    --popover: 16 17 29; /* Vulcan #10111D */
+    --popover-foreground: 184 188 211; /* Violet Haze #B8BCD3 */
+    --primary: 184 188 211; /* Violet Haze #B8BCD3 */
+    --primary-foreground: 16 17 29; /* Vulcan #10111D */
+    --secondary: 38 38 38; /* Vulcan with 15% lightness */
+    --secondary-foreground: 184 188 211; /* Violet Haze #B8BCD3 */
+    --muted: 38 38 38; /* Vulcan with 15% lightness */
+    --muted-foreground: 166 170 193; /* Violet Haze with 90% opacity */
+    --accent: 86 247 153; /* Shamrock #56F799 */
+    --accent-foreground: 16 17 29; /* Vulcan #10111D */
+    --destructive: 255 19 240; /* Electric Fuchsia #FF13F0 */
+    --destructive-foreground: 184 188 211; /* Violet Haze #B8BCD3 */
+    --border: 51 51 51; /* Vulcan with 20% lightness */
+    --input: 51 51 51; /* Vulcan with 20% lightness */
+    --ring: 86 247 153; /* Shamrock #56F799 */
+    --chart-1: 86 247 153; /* Shamrock #56F799 */
+    --chart-2: 255 19 240; /* Electric Fuchsia #FF13F0 */
+    --chart-3: 0 255 121; /* Spring Green #00FF79 */
+    --chart-4: 184 188 211; /* Violet Haze #B8BCD3 */
+    --chart-5: 249 249 252; /* Light background (Vulcan with 5% opacity) */
     --sidebar-background: var(--background);
     --sidebar-foreground: var(--foreground);
     --sidebar-primary: var(--primary);
@@ -124,7 +127,7 @@
   }
 
   .faded-bottom {
-    @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_hsl(var(--background))_70%)] after:md:block;
+    @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_rgb(var(--background))_70%)] after:md:block;
   }
 }
 
@@ -132,7 +135,7 @@
   * {
     @apply border-border;
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: rgb(var(--border)) transparent;
   }
   html {
     @apply overflow-x-hidden;
