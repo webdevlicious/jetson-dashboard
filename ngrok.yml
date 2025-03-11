@@ -1,0 +1,16 @@
+version: 2
+authorefs: []
+tunnels:
+  web:
+    proto: http
+    addr: 5173
+    domain: dashboard.ngrok.io
+    inspect: false
+    schemes:
+      - https
+    basic_auth:
+      - username: admin
+        password: admin123
+    allow_user_agent: ".*"
+    allow_cidr:
+      - 0.0.0.0/0

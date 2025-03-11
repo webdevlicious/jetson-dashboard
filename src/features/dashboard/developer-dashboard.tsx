@@ -1,19 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { BaseDashboard } from './base-dashboard'
 
-const topNav = [
-  { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
-  { title: 'Projects', href: '/dashboard/projects', isActive: false, disabled: false },
-  { title: 'Skills', href: '/dashboard/skills', isActive: false, disabled: false },
-  { title: 'Settings', href: '/dashboard/settings', isActive: false, disabled: false },
-]
+// const topNav = [
+//   { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
+//   { title: 'Projects', href: '/dashboard/projects', isActive: false, disabled: false },
+//   { title: 'Skills', href: '/dashboard/skills', isActive: false, disabled: false },
+//   { title: 'Settings', href: '/dashboard/settings', isActive: false, disabled: false },
+// ]
 
 export function DeveloperDashboard() {
   return (
     <BaseDashboard
       title='Developer Dashboard'
       description='Track your development metrics and opportunities'
-      topNav={topNav}
+      // topNav={topNav}
     >
       <Card>
         <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>

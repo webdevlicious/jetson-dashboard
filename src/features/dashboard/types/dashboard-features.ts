@@ -23,6 +23,7 @@ export interface DashboardFeatures {
     recruitmentProgress: BaseFeature
     teamActivities: BaseFeature
     trainingSchedule: BaseFeature
+    collegeSearch: BaseFeature
     metrics: MetricCard[]
   }
   scout: {
@@ -69,6 +70,7 @@ export const getRoleFeatures = (role: DashboardType): Partial<DashboardFeatures>
           recruitmentProgress: { name: 'Recruitment Progress', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
           teamActivities: { name: 'Team Activities', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
           trainingSchedule: { name: 'Training Schedule', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
+          collegeSearch: { name: 'College Search', enabled: true, requiresPermission: false, ...baseFeatureDefaults },
           metrics: []
         }
       }

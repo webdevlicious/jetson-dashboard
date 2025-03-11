@@ -1,21 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { BaseDashboard } from './base-dashboard'
 
-const topNav = [
-  { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
-  { title: 'Students', href: '/dashboard/students', isActive: false, disabled: false },
-  { title: 'Appointments', href: '/dashboard/appointments', isActive: false, disabled: false },
-  { title: 'Resources', href: '/dashboard/resources', isActive: false, disabled: false },
-  { title: 'Reports', href: '/dashboard/reports', isActive: false, disabled: false },
-  { title: 'Settings', href: '/dashboard/settings', isActive: false, disabled: false },
-]
+// const topNav = [
+//   { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
+//   { title: 'Students', href: '/dashboard/students', isActive: false, disabled: false },
+//   { title: 'Appointments', href: '/dashboard/appointments', isActive: false, disabled: false },
+//   { title: 'Resources', href: '/dashboard/resources', isActive: false, disabled: false },
+//   { title: 'Reports', href: '/dashboard/reports', isActive: false, disabled: false },
+//   { title: 'Settings', href: '/dashboard/settings', isActive: false, disabled: false },
+// ]
 
 export function CounselorDashboard() {
   return (
     <BaseDashboard
       title='Counselor Dashboard'
       description='Guide and support student athletes'
-      topNav={topNav}
+      // topNav={topNav}
     >
       <Card>
         <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>

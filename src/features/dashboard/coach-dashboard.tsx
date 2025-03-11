@@ -1,21 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { BaseDashboard } from './base-dashboard'
 
-const topNav = [
-  { title: 'Overview', href: '/dashboard' },
-  { title: 'Team', href: '/dashboard/team' },
-  { title: 'Players', href: '/dashboard/players' },
-  { title: 'Training', href: '/dashboard/training' },
-  { title: 'Analytics', href: '/dashboard/analytics' },
-  { title: 'Settings', href: '/dashboard/settings' },
-]
+// const topNav = [
+//   { title: 'Overview', href: '/dashboard' },
+//   { title: 'Team', href: '/dashboard/team' },
+//   { title: 'Players', href: '/dashboard/players' },
+//   { title: 'Training', href: '/dashboard/training' },
+//   { title: 'Analytics', href: '/dashboard/analytics' },
+//   { title: 'Settings', href: '/dashboard/settings' },
+// ]
 
 export function CoachDashboard() {
   return (
     <BaseDashboard
       title='Coach Dashboard'
       description='Manage your team and track player performance'
-      topNav={topNav}
+      // topNav={topNav}
     >
       <Card>
         <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>

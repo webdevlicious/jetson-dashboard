@@ -21,7 +21,7 @@ import {
 } from '@tabler/icons-react'
 import { type SidebarData } from '../types'
 
-export const parentSidebarData: SidebarData = {
+export const sidebarData: SidebarData = {
   user: {
     name: 'David Parent',
     email: 'd.parent@brickertape.com',
@@ -99,22 +99,22 @@ export const parentSidebarData: SidebarData = {
       items: [
         {
           title: 'Messages',
-          url: '/communication/messages',
+          url: '/scout/communication/messages',
           icon: IconBellRinging,
         },
         {
           title: 'Coaches',
-          url: '/parent/communication/coaches',
+          url: '/scout/communication/coaches',
           icon: IconUserSearch,
         },
         {
           title: 'Counselors',
-          url: '/parent/communication/counselors',
+          url: '/scout/communication/parents',
           icon: IconUserSearch,
         },
         {
           title: 'Announcements',
-          url: '/parent/communication/announcements',
+          url: '/parent/notifications',
           icon: IconBellRinging,
         },
       ],
@@ -124,22 +124,22 @@ export const parentSidebarData: SidebarData = {
       items: [
         {
           title: 'Grades',
-          url: '/parent/academics/grades',
+          url: '/parent/academic',
           icon: IconSchool,
         },
         {
           title: 'Assignments',
-          url: '/parent/academics/assignments',
+          url: '/parent/academic',
           icon: IconChecklist,
         },
         {
           title: 'Study Resources',
-          url: '/parent/academics/resources',
+          url: '/parent/academic',
           icon: IconBrain,
         },
         {
           title: 'College Prep',
-          url: '/parent/academics/college-prep',
+          url: '/parent/academic',
           icon: IconSchool,
         },
       ],
@@ -1144,7 +1144,7 @@ export const trainerSidebarData: SidebarData = {
       items: [
         {
           title: 'Profile',
-          url: '/settings/profile',
+          url: '/trainer/settings/profile',
           icon: IconUserCog,
         },
         {

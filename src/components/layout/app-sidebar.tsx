@@ -12,6 +12,7 @@ import { athleteSidebarData } from './data/athlete-sidebar-data'
 import { parentSidebarData } from './data/parent-sidebar-data'
 import { scoutSidebarData } from './data/scout-sidebar-data'
 import { coachSidebarData } from './data/coach-sidebar-data'
+import { trainerSidebarData } from './data/trainer-sidebar-data'
 import { DashboardType, isDashboardWithTeamSwitcher } from './types/dashboard'
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
@@ -27,6 +28,7 @@ export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProp
             dashboardType === 'parent' ? parentSidebarData :
             dashboardType === 'scout' ? scoutSidebarData :
             dashboardType === 'coach' ? coachSidebarData :
+            dashboardType === 'trainer' ? trainerSidebarData :
             athleteSidebarData
           ).teams} />
         )}
@@ -36,6 +38,7 @@ export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProp
           dashboardType === 'parent' ? parentSidebarData :
           dashboardType === 'scout' ? scoutSidebarData :
           dashboardType === 'coach' ? coachSidebarData :
+          dashboardType === 'trainer' ? trainerSidebarData :
           athleteSidebarData
         ).navGroups.map((props) => (
           <NavGroup key={props.title} {...props} />
@@ -46,6 +49,7 @@ export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProp
           dashboardType === 'parent' ? parentSidebarData :
           dashboardType === 'scout' ? scoutSidebarData :
           dashboardType === 'coach' ? coachSidebarData :
+          dashboardType === 'trainer' ? trainerSidebarData :
           athleteSidebarData
         ).user} />
       </SidebarFooter>

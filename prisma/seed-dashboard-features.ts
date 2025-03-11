@@ -140,14 +140,6 @@ const dashboardFeatures: DashboardFeatures = {
       lastAccessed: null,
       analyticsEnabled: true
     },
-    gameStrategy: {
-      name: 'Game Strategy',
-      enabled: true,
-      requiresPermission: false,
-      usageCount: 0,
-      lastAccessed: null,
-      analyticsEnabled: true
-    },
     performanceAnalytics: {
       name: 'Performance Analytics',
       enabled: true,

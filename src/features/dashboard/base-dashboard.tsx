@@ -13,7 +13,7 @@ import { RecentSales } from './components/recent-sales'
 interface BaseDashboardProps {
   title?: string
   description?: string
-  topNav: Array<{ title: string; href: string; isActive: boolean; disabled?: boolean }>
+  topNav?: Array<{ title: string; href: string; isActive?: boolean; disabled?: boolean }>
   children?: React.ReactNode
 }
 
@@ -26,8 +26,7 @@ export function BaseDashboard({
   return (
     <>
       <Header>
-        <TopNav links={topNav} />
-        <div className='ml-auto flex items-center space-x-4'>
+        <div className='flex items-center ml-auto space-x-4'>
           <Search />
           <ThemeSwitch />
           <ProfileDropdown />
@@ -35,7 +34,7 @@ export function BaseDashboard({
       </Header>
 
       <Main>
-        <div className='mb-2 flex items-center justify-between space-y-2'>
+        <div className='flex justify-between items-center mb-2 space-y-2'>
           <h1 className='text-2xl font-bold tracking-tight'>{title}</h1>
           {description && (
             <p className='text-muted-foreground'>{description}</p>
@@ -50,7 +49,7 @@ export function BaseDashboard({
           defaultValue='overview'
           className='space-y-4'
         >
-          <div className='w-full overflow-x-auto pb-2'>
+          <div className='overflow-x-auto pb-2 w-full'>
             <TabsList>
               <TabsTrigger value='overview'>Overview</TabsTrigger>
               <TabsTrigger value='analytics' disabled>

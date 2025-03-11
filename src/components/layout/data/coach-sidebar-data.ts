@@ -89,11 +89,6 @@ export const coachSidebarData: SidebarData = {
       title: 'Training',
       items: [
         {
-          title: 'Practice Plans',
-          url: '/coach/training/practice',
-          icon: IconChecklist,
-        },
-        {
           title: 'Drills Library',
           url: '/coach/training/drills',
           icon: IconBrain,
