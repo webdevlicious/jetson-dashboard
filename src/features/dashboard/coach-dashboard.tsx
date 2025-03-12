@@ -1,9 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Main } from '@/components/layout/main'
+import { Header } from '@/components/layout/header'
+import { Search } from '@/components/search'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { ProfileDropdown } from '@/components/profile-dropdown'
 import { PerformanceChart } from './coach/performance-chart'
+import { CoachTopMenu } from './components/coach-topMenu'
 
 export function CoachDashboard() {
   return (
+<>
+    <Header>
+      <CoachTopMenu />
+      <div className='flex items-center ml-auto space-x-4'>
+        <Search />
+        <ThemeSwitch />
+        <ProfileDropdown />
+      </div>
+    </Header>
     <Main>
       <div className='flex justify-between items-center mb-2 space-y-2'>
         <h1 className='text-2xl font-bold tracking-tight'>Coach Dashboard</h1>
@@ -13,7 +27,7 @@ export function CoachDashboard() {
       <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         {/* First row - Metrics */}
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardHeader className='flex flex-row justify-between items-center pb-2 space-y-0'>
             <CardTitle className='text-sm font-medium'>Team Size</CardTitle>
           </CardHeader>
           <CardContent>
@@ -22,7 +36,7 @@ export function CoachDashboard() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardHeader className='flex flex-row justify-between items-center pb-2 space-y-0'>
             <CardTitle className='text-sm font-medium'>Training Sessions</CardTitle>
           </CardHeader>
           <CardContent>
@@ -31,7 +45,7 @@ export function CoachDashboard() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardHeader className='flex flex-row justify-between items-center pb-2 space-y-0'>
             <CardTitle className='text-sm font-medium'>Team Performance</CardTitle>
           </CardHeader>
           <CardContent>
@@ -40,7 +54,7 @@ export function CoachDashboard() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardHeader className='flex flex-row justify-between items-center pb-2 space-y-0'>
             <CardTitle className='text-sm font-medium'>Upcoming Events</CardTitle>
           </CardHeader>
           <CardContent>
@@ -53,5 +67,6 @@ export function CoachDashboard() {
         <PerformanceChart />
       </div>
     </Main>
+  </>
   )
 }

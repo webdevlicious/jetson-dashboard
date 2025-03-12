@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { IconPlus } from '@tabler/icons-react'
 
 export function TeamSwitcher({
   teams,
@@ -37,15 +38,15 @@ export function TeamSwitcher({
               size='lg'
               className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
             >
-              <div className='flex aspect-square size-8 items-center justify-center rounded-lg'>
+              <div className='flex justify-center items-center rounded-lg aspect-square size-8'>
                 <img
                   src={isMobile ? '/images/logo_icon.png' : '/images/logo.png'}
                   alt={activeTeam.name}
-                  className='size-full object-contain'
+                  className='object-contain size-full'
                 />
               </div>
-              <div className='grid flex-1 text-left text-sm leading-tight'>
-                <span className='truncate font-semibold'>
+              <div className='grid flex-1 text-sm leading-tight text-left'>
+                <span className='font-semibold truncate'>
                   {activeTeam.name}
                 </span>
               </div>
@@ -67,7 +68,7 @@ export function TeamSwitcher({
                 onClick={() => setActiveTeam(team)}
                 className='gap-2 p-2'
               >
-                <div className='flex size-6 items-center justify-center rounded-sm border'>
+                <div className='flex justify-center items-center rounded-sm border size-6'>
                   <team.logo className='size-4 shrink-0' />
                 </div>
                 {team.name}
@@ -76,8 +77,8 @@ export function TeamSwitcher({
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem className='gap-2 p-2'>
-              <div className='flex size-6 items-center justify-center rounded-md border bg-background'>
-                <Plus className='size-4' />
+              <div className='flex justify-center items-center rounded-md border size-6 bg-background'>
+                <IconPlus className='size-4' />
               </div>
               <div className='font-medium text-muted-foreground'>Add team</div>
             </DropdownMenuItem>

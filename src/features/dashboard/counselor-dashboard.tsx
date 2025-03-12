@@ -1,5 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { BaseDashboard } from './base-dashboard'
+import { Header } from '@/components/layout/header'
+import { Main } from '@/components/layout/main'
+import { Search } from '@/components/search'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { ProfileDropdown } from '@/components/profile-dropdown'
+import { CounselorTopMenu } from './components/counselor-topMenu'
 
 // const topNav = [
 //   { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
@@ -12,11 +17,23 @@ import { BaseDashboard } from './base-dashboard'
 
 export function CounselorDashboard() {
   return (
-    <BaseDashboard
-      title='Counselor Dashboard'
-      description='Guide and support student athletes'
-      // topNav={topNav}
-    >
+    <>
+      <Header>
+        <CounselorTopMenu />
+        <div className='flex items-center ml-auto space-x-4'>
+          <Search />
+          <ThemeSwitch />
+          <ProfileDropdown />
+        </div>
+      </Header>
+      
+      <Main>
+        <div className='flex justify-between items-center mb-2 space-y-2'>
+          <h1 className='text-2xl font-bold tracking-tight'>Counselor Dashboard</h1>
+          <p className='text-muted-foreground'>Guide and support student athletes</p>
+        </div>
+        
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
       <Card>
         <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
           <CardTitle className='text-sm font-medium'>Active Students</CardTitle>
@@ -53,6 +70,8 @@ export function CounselorDashboard() {
           <p className='text-xs text-muted-foreground'>+2% since last week</p>
         </CardContent>
       </Card>
-    </BaseDashboard>
+        </div>
+      </Main>
+    </>
   )
 }

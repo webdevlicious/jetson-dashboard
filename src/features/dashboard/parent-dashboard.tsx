@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { CalendarIcon, BookOpenIcon, TrendingUpIcon, ActivityIcon } from 'lucide-react'
 import { BaseDashboard } from './base-dashboard'
+import { IconCalendar } from '@tabler/icons-react'
 
 export function ParentDashboard() {
   return (
@@ -116,7 +117,7 @@ export function ParentDashboard() {
         </CardHeader>
         <CardContent className='space-y-4'>
           <div className='flex items-start space-x-4'>
-            <CalendarIcon className='mt-1 w-5 h-5 text-muted-foreground' />
+            <IconCalendar className='mt-1 w-5 h-5 text-muted-foreground' />
             <div>
               <p className='font-medium'>Parent-Coach Meeting</p>
               <p className='text-sm text-muted-foreground'>Jun 15, 2024 · 3:00p</p>
@@ -124,7 +125,7 @@ export function ParentDashboard() {
             </div>
           </div>
           <div className='flex items-start space-x-4'>
-            <CalendarIcon className='mt-1 w-5 h-5 text-muted-foreground' />
+            <IconCalendar className='mt-1 w-5 h-5 text-muted-foreground' />
             <div>
               <p className='font-medium'>Tournament</p>
               <p className='text-sm text-muted-foreground'>Jun 20, 2024 · 9:00a</p>
@@ -132,7 +133,7 @@ export function ParentDashboard() {
             </div>
           </div>
           <div className='flex items-start space-x-4'>
-            <CalendarIcon className='mt-1 w-5 h-5 text-muted-foreground' />
+            <IconCalendar className='mt-1 w-5 h-5 text-muted-foreground' />
             <div>
               <p className='font-medium'>Academic Review</p>
               <p className='text-sm text-muted-foreground'>Jun 25, 2024 · 2:00p</p>

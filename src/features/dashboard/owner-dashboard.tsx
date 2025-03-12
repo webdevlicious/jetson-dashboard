@@ -1,14 +1,32 @@
 import { IconCoin, IconUsers, IconUserPlus, IconUserMinus, IconChartBar, IconChartLine } from '@tabler/icons-react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { BaseDashboard } from './base-dashboard'
+import { Header } from '@/components/layout/header'
+import { Main } from '@/components/layout/main'
+import { Search } from '@/components/search'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { ProfileDropdown } from '@/components/profile-dropdown'
 import { BarChart, LineChart } from '@/components/ui/charts'
+import { OwnerTopMenu } from './components/owner-topMenu'
 
 export function OwnerDashboard() {
   return (
-    <BaseDashboard
-      title="Platform Administration"
-      description="Comprehensive overview of your platform's performance and user metrics."
-    >
+    <>
+      <Header>
+        <OwnerTopMenu />
+        <div className='flex items-center ml-auto space-x-4'>
+          <Search />
+          <ThemeSwitch />
+          <ProfileDropdown />
+        </div>
+      </Header>
+      
+      <Main>
+        <div className='flex justify-between items-center mb-2 space-y-2'>
+          <h1 className='text-2xl font-bold tracking-tight'>Platform Administration</h1>
+          <p className='text-muted-foreground'>Comprehensive overview of your platform's performance and user metrics.</p>
+        </div>
+        
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">
@@ -166,6 +184,8 @@ export function OwnerDashboard() {
           </div>
         </CardContent>
       </Card>
-    </BaseDashboard>
+        </div>
+      </Main>
+    </>
   )
 }

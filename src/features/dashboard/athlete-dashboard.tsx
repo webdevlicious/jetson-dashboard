@@ -7,26 +7,20 @@ import { Main } from '@/components/layout/main'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { ProfileDropdown } from '@/components/profile-dropdown'
-
-// const topNav = [
-//   { title: 'Overview', href: '/dashboard', isActive: true, disabled: false },
-//   { title: 'Performance', href: '/dashboard/performance', isActive: false, disabled: false },
-//   { title: 'Teams', href: '/dashboard/teams', isActive: false, disabled: false },
-//   { title: 'Training', href: '/dashboard/training', isActive: false, disabled: false },
-//   { title: 'College Search', href: '/dashboard/college-search', isActive: false, disabled: false },
-//   { title: 'Settings', href: '/dashboard/settings', isActive: false, disabled: false },
-// ]
+import { AthleteTopMenu } from './components/athlete-topMenu'
+import { IconCalendar, IconBrandTwitter } from '@tabler/icons-react'
 
 export function AthleteDashboard() {
   return (
     <>
-      {/* <Header>
+      <Header>
+        <AthleteTopMenu />
         <div className='flex items-center ml-auto space-x-4'>
           <Search />
           <ThemeSwitch />
           <ProfileDropdown />
         </div>
-      </Header> */}
+      </Header>
 
       <Main>
         <div className='flex justify-between items-center mb-2 space-y-2'>
@@ -132,7 +126,7 @@ export function AthleteDashboard() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-start space-x-4">
-            <CalendarIcon className="mt-1 w-5 h-5 text-muted-foreground" />
+            <IconCalendar className="mt-1 w-5 h-5 text-muted-foreground" />
             <div>
               <p className="font-medium">Football Camp</p>
               <p className="text-sm text-muted-foreground">Jun 19, 2025 · 8:30a</p>
@@ -140,7 +134,7 @@ export function AthleteDashboard() {
             </div>
           </div>
           <div className="flex items-start space-x-4">
-            <CalendarIcon className="mt-1 w-5 h-5 text-muted-foreground" />
+            <IconCalendar className="mt-1 w-5 h-5 text-muted-foreground" />
             <div>
               <p className="font-medium">Football Camp</p>
               <p className="text-sm text-muted-foreground">Jun 25, 2025 · 10:00a</p>
@@ -148,7 +142,7 @@ export function AthleteDashboard() {
             </div>
           </div>
           <div className="flex items-start space-x-4">
-            <CalendarIcon className="mt-1 w-5 h-5 text-muted-foreground" />
+            <IconCalendar className="mt-1 w-5 h-5 text-muted-foreground" />
             <div>
               <p className="font-medium">7v7 Tournament</p>
               <p className="text-sm text-muted-foreground">Jul 7, 2025 · 7:00a</p>
@@ -184,7 +178,7 @@ export function AthleteDashboard() {
           <div className="flex items-start space-x-4">
             <Avatar className="w-8 h-8">
               <AvatarImage src="/teams/football.png" alt="Twitter" />
-              <AvatarFallback><TwitterIcon className="w-4 h-4" /></AvatarFallback>
+              <AvatarFallback><IconBrandTwitter className="w-4 h-4" /></AvatarFallback>
             </Avatar>
             <div>
               <div className="flex items-center space-x-2">
@@ -197,7 +191,7 @@ export function AthleteDashboard() {
           <div className="flex items-start space-x-4">
             <Avatar className="w-8 h-8">
               <AvatarImage src="/teams/football.png" alt="Twitter" />
-              <AvatarFallback><TwitterIcon className="w-4 h-4" /></AvatarFallback>
+              <AvatarFallback><IconBrandTwitter className="w-4 h-4" /></AvatarFallback>
             </Avatar>
             <div>
               <div className="flex items-center space-x-2">

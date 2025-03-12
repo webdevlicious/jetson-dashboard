@@ -1,6 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
+import { Search } from '@/components/search'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { ProfileDropdown } from '@/components/profile-dropdown'
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'
+import { ScoutTopMenu } from './components/scout-topMenu'
 
 // Sample data for athlete evaluation categories
 const athleteData = [
@@ -15,7 +20,16 @@ const COLORS = ['var(--primary)', 'var(--secondary)', 'var(--accent)', 'var(--mu
 
 export function ScoutDashboard() {
   return (
-    <Main>
+    <>
+      <Header>
+        <ScoutTopMenu />
+        <div className='flex items-center ml-auto space-x-4'>
+          <Search />
+          <ThemeSwitch />
+          <ProfileDropdown />
+        </div>
+      </Header>
+      <Main>
       <div className='flex justify-between items-center mb-2 space-y-2'>
         <h1 className='text-2xl font-bold tracking-tight'>Scout Dashboard</h1>
         <p className='text-muted-foreground'>Track and evaluate athletic talent</p>
@@ -98,5 +112,6 @@ export function ScoutDashboard() {
         </Card>
       </div>
     </Main>
+    </>
   )
 }

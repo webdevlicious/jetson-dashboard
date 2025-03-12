@@ -5,7 +5,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
-import { UserIcon } from 'lucide-react'
+import { IconUser } from '@tabler/icons-react'
 
 type UserRole = 'athlete' | 'coach' | 'parent' | 'scout' | 'trainer' | 'developer' | 'owner' | 'counselor'
 
@@ -52,7 +52,7 @@ export function UserTypeSwitcher() {
       <DropdownMenuSeparator />
       <DropdownMenuLabel>
         <div className="flex items-center gap-2">
-          <UserIcon className="h-4 w-4" />
+          <IconUser className="h-4 w-4" />
           <span>Test User Types</span>
         </div>
       </DropdownMenuLabel>

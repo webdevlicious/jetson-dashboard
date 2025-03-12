@@ -1,10 +1,24 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
+import { Search } from '@/components/search'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { ProfileDropdown } from '@/components/profile-dropdown'
 import { ClientProgressChart } from './trainer/client-progress-chart'
+import { TrainerTopMenu } from './components/trainer-topMenu'
 
 export function TrainerDashboard() {
   return (
-    <Main>
+    <>
+      <Header>
+        <TrainerTopMenu />
+        <div className='flex items-center ml-auto space-x-4'>
+          <Search />
+          <ThemeSwitch />
+          <ProfileDropdown />
+        </div>
+      </Header>
+      <Main>
       <div className='flex justify-between items-center mb-2 space-y-2'>
         <h1 className='text-2xl font-bold tracking-tight'>Trainer Dashboard</h1>
         <p className='text-muted-foreground'>Manage your clients and training programs</p>
@@ -53,5 +67,6 @@ export function TrainerDashboard() {
         <ClientProgressChart />
       </div>
     </Main>
+    </>
   )
 }
