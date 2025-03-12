@@ -8,50 +8,34 @@ import {
 import { NavGroup } from '@/components/layout/nav-group'
 import { NavUser } from '@/components/layout/nav-user'
 import { TeamSwitcher } from '@/components/layout/team-switcher'
-import { athleteSidebarData } from './data/athlete-sidebar-data'
-import { parentSidebarData } from './data/parent-sidebar-data'
-import { scoutSidebarData } from './data/scout-sidebar-data'
-import { coachSidebarData } from './data/coach-sidebar-data'
-import { trainerSidebarData } from './data/trainer-sidebar-data'
+import { useSidebarData } from '@/hooks/use-sidebar-data'
 import { DashboardType, isDashboardWithTeamSwitcher } from './types/dashboard'
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
   dashboardType?: DashboardType
 }
 
-export function AppSidebar({ dashboardType = 'basic', ...props }: AppSidebarProps) {
+export function AppSidebar({ dashboardType: propsDashboardType = 'basic', ...props }: AppSidebarProps) {
+  // Use the sidebar data hook to get the current user's dashboard type and sidebar data
+  const { sidebarData, dashboardType: userDashboardType } = useSidebarData()
+  
+  // Use the dashboard type from props if provided, otherwise use the one from the auth store
+  const dashboardType = propsDashboardType !== 'basic' ? propsDashboardType : userDashboardType
+  
   return (
     <Sidebar collapsible='icon' variant='floating' {...props}>
       <SidebarHeader>
         {isDashboardWithTeamSwitcher(dashboardType) && (
-          <TeamSwitcher teams={(dashboardType === 'athlete' ? athleteSidebarData :
-            dashboardType === 'parent' ? parentSidebarData :
-            dashboardType === 'scout' ? scoutSidebarData :
-            dashboardType === 'coach' ? coachSidebarData :
-            dashboardType === 'trainer' ? trainerSidebarData :
-            athleteSidebarData
-          ).teams} />
+          <TeamSwitcher teams={sidebarData.teams} />
         )}
       </SidebarHeader>
       <SidebarContent>
-        {(dashboardType === 'athlete' ? athleteSidebarData :
-          dashboardType === 'parent' ? parentSidebarData :
-          dashboardType === 'scout' ? scoutSidebarData :
-          dashboardType === 'coach' ? coachSidebarData :
-          dashboardType === 'trainer' ? trainerSidebarData :
-          athleteSidebarData
-        ).navGroups.map((props) => (
+        {sidebarData.navGroups.map((props) => (
           <NavGroup key={props.title} {...props} />
         ))}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={(dashboardType === 'athlete' ? athleteSidebarData :
-          dashboardType === 'parent' ? parentSidebarData :
-          dashboardType === 'scout' ? scoutSidebarData :
-          dashboardType === 'coach' ? coachSidebarData :
-          dashboardType === 'trainer' ? trainerSidebarData :
-          athleteSidebarData
-        ).user} />
+        <NavUser user={sidebarData.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

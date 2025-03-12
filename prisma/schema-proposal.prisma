@@ -1,0 +1,434 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// Existing models
+model PermissionSet {
+    id          Int          @id @default(autoincrement())
+    resource    String?
+    permissions Permission[]
+
+    @@map("permission_sets")
+}
+
+// New models for dashboard features
+
+model User {
+    id               String         @id @default(cuid())
+    email            String         @unique
+    password         String
+    firstName        String?
+    lastName         String?
+    createdAt        DateTime       @default(now())
+    updatedAt        DateTime       @updatedAt
+    roles            Role[]
+    profile          Profile?
+    athlete          Athlete?
+    coach            Coach?
+    scout            Scout?
+    trainer          Trainer?
+    counselor        Counselor?
+    parent           Parent?
+    sentMessages     Message[]      @relation("MessageSender")
+    receivedMessages Message[]      @relation("MessageReceiver")
+    notifications    Notification[]
+    teamMemberships  TeamMember[]
+    createdTeams     Team[]         @relation("TeamCreator")
+
+    @@map("users")
+}
+
+model Profile {
+    id          String   @id @default(cuid())
+    userId      String   @unique
+    user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    bio         String?
+    phoneNumber String?
+    address     String?
+    city        String?
+    state       String?
+    zipCode     String?
+    country     String?
+    avatarUrl   String?
+    socialLinks Json? // Store social media links as JSON
+    preferences Json? // Store user preferences as JSON
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    @@map("profiles")
+}
+
+model Role {
+    id          String       @id @default(cuid())
+    name        String       @unique
+    users       User[]
+    permissions Permission[]
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+
+    @@map("roles")
+}
+
+model Permission {
+    id              String         @id @default(cuid())
+    action          String // e.g., "read", "write", "delete"
+    resource        String // e.g., "athlete_profile", "team", "message"
+    roles           Role[]
+    permissionSet   PermissionSet? @relation(fields: [permissionSetId], references: [id])
+    permissionSetId Int?
+    createdAt       DateTime       @default(now())
+    updatedAt       DateTime       @updatedAt
+
+    @@unique([action, resource])
+    @@map("permissions")
+}
+
+// Athlete-specific models
+model Athlete {
+    id                String             @id @default(cuid())
+    userId            String             @unique
+    user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+    dateOfBirth       DateTime?
+    height            Float? // in cm
+    weight            Float? // in kg
+    graduationYear    Int?
+    sports            Sport[]            @relation("AthleteSports")
+    positions         Position[]
+    stats             AthleticStat[]
+    academicRecords   AcademicRecord[]
+    recruitmentStatus RecruitmentStatus?
+    healthRecords     HealthRecord[]
+    teamMemberships   TeamMember[]
+    createdAt         DateTime           @default(now())
+    updatedAt         DateTime           @updatedAt
+    ParentChild       ParentChild[]
+
+    @@map("athletes")
+}
+
+model Sport {
+    id             String         @id @default(cuid())
+    name           String         @unique
+    athletes       Athlete[]      @relation("AthleteSports")
+    teams          Team[]
+    positions      Position[]
+    statCategories StatCategory[]
+    createdAt      DateTime       @default(now())
+    updatedAt      DateTime       @updatedAt
+
+    @@map("sports")
+}
+
+model Position {
+    id        String    @id @default(cuid())
+    name      String
+    sportId   String
+    sport     Sport     @relation(fields: [sportId], references: [id])
+    athletes  Athlete[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+
+    @@unique([name, sportId])
+    @@map("positions")
+}
+
+model Team {
+    id          String       @id @default(cuid())
+    name        String
+    description String?
+    logoUrl     String?
+    sportId     String
+    sport       Sport        @relation(fields: [sportId], references: [id])
+    creatorId   String
+    creator     User         @relation("TeamCreator", fields: [creatorId], references: [id])
+    members     TeamMember[]
+    events      Event[]
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+
+    @@map("teams")
+}
+
+model TeamMember {
+    id        String    @id @default(cuid())
+    teamId    String
+    team      Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+    userId    String
+    user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    athleteId String?
+    athlete   Athlete?  @relation(fields: [athleteId], references: [id], onDelete: SetNull)
+    role      String // e.g., "player", "captain", "coach", "manager"
+    joinedAt  DateTime  @default(now())
+    leftAt    DateTime?
+
+    @@unique([teamId, userId])
+    @@map("team_members")
+}
+
+// Athletic performance tracking
+model StatCategory {
+    id          String         @id @default(cuid())
+    name        String
+    description String?
+    sportId     String
+    sport       Sport          @relation(fields: [sportId], references: [id])
+    stats       AthleticStat[]
+    createdAt   DateTime       @default(now())
+    updatedAt   DateTime       @updatedAt
+
+    @@unique([name, sportId])
+    @@map("stat_categories")
+}
+
+model AthleticStat {
+    id         String       @id @default(cuid())
+    athleteId  String
+    athlete    Athlete      @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+    categoryId String
+    category   StatCategory @relation(fields: [categoryId], references: [id])
+    value      Float
+    unit       String?
+    date       DateTime
+    eventId    String?
+    event      Event?       @relation(fields: [eventId], references: [id])
+    notes      String?
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @updatedAt
+
+    @@map("athletic_stats")
+}
+
+model Event {
+    id          String         @id @default(cuid())
+    title       String
+    description String?
+    startDate   DateTime
+    endDate     DateTime?
+    location    String?
+    teamId      String?
+    team        Team?          @relation(fields: [teamId], references: [id])
+    eventType   String // e.g., "game", "practice", "tournament", "camp"
+    stats       AthleticStat[]
+    createdAt   DateTime       @default(now())
+    updatedAt   DateTime       @updatedAt
+
+    @@map("events")
+}
+
+// Academic records
+model AcademicRecord {
+    id            String    @id @default(cuid())
+    athleteId     String
+    athlete       Athlete   @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+    schoolName    String?
+    gpa           Float?
+    satScore      Int?
+    actScore      Int?
+    courses       Course[]
+    transcriptUrl String?
+    startDate     DateTime?
+    endDate       DateTime?
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime  @updatedAt
+
+    @@map("academic_records")
+}
+
+model Course {
+    id               String         @id @default(cuid())
+    academicRecordId String
+    academicRecord   AcademicRecord @relation(fields: [academicRecordId], references: [id], onDelete: Cascade)
+    name             String
+    grade            String?
+    credits          Float?
+    semester         String?
+    year             Int?
+    createdAt        DateTime       @default(now())
+    updatedAt        DateTime       @updatedAt
+
+    @@map("courses")
+}
+
+// Recruitment tracking
+model RecruitmentStatus {
+    id        String            @id @default(cuid())
+    athleteId String            @unique
+    athlete   Athlete           @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+    status    String // e.g., "prospect", "contacted", "offered", "committed"
+    notes     String?
+    colleges  CollegeInterest[]
+    createdAt DateTime          @default(now())
+    updatedAt DateTime          @updatedAt
+
+    @@map("recruitment_statuses")
+}
+
+model College {
+    id               String            @id @default(cuid())
+    name             String            @unique
+    location         String?
+    division         String?
+    conference       String?
+    website          String?
+    logoUrl          String?
+    athleteInterests CollegeInterest[]
+    createdAt        DateTime          @default(now())
+    updatedAt        DateTime          @updatedAt
+
+    @@map("colleges")
+}
+
+model CollegeInterest {
+    id                  String            @id @default(cuid())
+    recruitmentStatusId String
+    recruitmentStatus   RecruitmentStatus @relation(fields: [recruitmentStatusId], references: [id], onDelete: Cascade)
+    collegeId           String
+    college             College           @relation(fields: [collegeId], references: [id])
+    interestLevel       String // e.g., "high", "medium", "low"
+    notes               String?
+    contactDate         DateTime?
+    offerDate           DateTime?
+    createdAt           DateTime          @default(now())
+    updatedAt           DateTime          @updatedAt
+
+    @@unique([recruitmentStatusId, collegeId])
+    @@map("college_interests")
+}
+
+// Health and wellness tracking
+model HealthRecord {
+    id            String    @id @default(cuid())
+    athleteId     String
+    athlete       Athlete   @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+    recordType    String // e.g., "injury", "illness", "checkup", "vaccination"
+    date          DateTime
+    description   String
+    treatmentPlan String?
+    recoveryTime  String?
+    cleared       Boolean   @default(false)
+    clearanceDate DateTime?
+    notes         String?
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime  @updatedAt
+
+    @@map("health_records")
+}
+
+// Coach-specific models
+model Coach {
+    id             String   @id @default(cuid())
+    userId         String   @unique
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    specialization String?
+    certification  String?
+    experience     Int? // Years of experience
+    bio            String?
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("coaches")
+}
+
+// Scout-specific models
+model Scout {
+    id             String   @id @default(cuid())
+    userId         String   @unique
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    organization   String?
+    region         String?
+    specialization String?
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("scouts")
+}
+
+// Trainer-specific models
+model Trainer {
+    id             String   @id @default(cuid())
+    userId         String   @unique
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    specialization String?
+    certification  String?
+    experience     Int? // Years of experience
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("trainers")
+}
+
+// Counselor-specific models
+model Counselor {
+    id             String   @id @default(cuid())
+    userId         String   @unique
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    specialization String?
+    certification  String?
+    experience     Int? // Years of experience
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("counselors")
+}
+
+// Parent-specific models
+model Parent {
+    id        String        @id @default(cuid())
+    userId    String        @unique
+    user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+    children  ParentChild[]
+    createdAt DateTime      @default(now())
+    updatedAt DateTime      @updatedAt
+
+    @@map("parents")
+}
+
+model ParentChild {
+    id           String   @id @default(cuid())
+    parentId     String
+    parent       Parent   @relation(fields: [parentId], references: [id], onDelete: Cascade)
+    athleteId    String
+    athlete      Athlete  @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+    relationship String // e.g., "father", "mother", "guardian"
+    isPrimary    Boolean  @default(false)
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+
+    @@unique([parentId, athleteId])
+    @@map("parent_children")
+}
+
+// Communication models
+model Message {
+    id         String    @id @default(cuid())
+    senderId   String
+    sender     User      @relation("MessageSender", fields: [senderId], references: [id])
+    receiverId String
+    receiver   User      @relation("MessageReceiver", fields: [receiverId], references: [id])
+    subject    String?
+    content    String
+    isRead     Boolean   @default(false)
+    readAt     DateTime?
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
+
+    @@map("messages")
+}
+
+model Notification {
+    id        String    @id @default(cuid())
+    userId    String
+    user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    content   String
+    isRead    Boolean   @default(false)
+    readAt    DateTime?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+
+    @@map("notifications")
+}

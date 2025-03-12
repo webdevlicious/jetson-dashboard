@@ -18,23 +18,21 @@ export const callTypes = new Map<UserStatus, string>([
 
 export const userTypes = [
   {
-    label: 'Superadmin',
-    value: 'superadmin',
+    label: 'Owner',
+    value: 'owner',
     icon: IconShield,
-  },
-  {
-    label: 'Admin',
-    value: 'admin',
-    icon: IconUserShield,
+    description: 'Platform owner with complete system access and user impersonation capabilities'
   },
   {
     label: 'Manager',
     value: 'manager',
-    icon: IconUsersGroup,
+    icon: IconUserShield,
+    description: 'Administrative role with platform management capabilities'
   },
   {
-    label: 'Cashier',
-    value: 'cashier',
-    icon: IconCash,
-  },
+    label: 'Developer',
+    value: 'developer',
+    icon: IconUsersGroup,
+    description: 'Technical role for platform maintenance and development'
+  }
 ] as const

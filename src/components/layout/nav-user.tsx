@@ -7,6 +7,7 @@ import {
   LogOut,
   Sparkles,
 } from 'lucide-react'
+import { UserTypeSwitcher } from '@/components/user-type-switcher'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -101,6 +102,7 @@ export function NavUser({
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
+            <UserTypeSwitcher />
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />

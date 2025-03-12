@@ -19,7 +19,24 @@ import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as auth500Import } from './routes/(auth)/500'
 import { Route as AuthenticatedTrainerTrainingIndexImport } from './routes/_authenticated/trainer/training/index'
+import { Route as AuthenticatedOwnerUsersIndexImport } from './routes/_authenticated/owner/users/index'
+import { Route as AuthenticatedOwnerUserActivityIndexImport } from './routes/_authenticated/owner/user-activity/index'
+import { Route as AuthenticatedOwnerRolesIndexImport } from './routes/_authenticated/owner/roles/index'
+import { Route as AuthenticatedOwnerOverviewIndexImport } from './routes/_authenticated/owner/overview/index'
+import { Route as AuthenticatedOwnerNotificationsIndexImport } from './routes/_authenticated/owner/notifications/index'
+import { Route as AuthenticatedOwnerAlertsIndexImport } from './routes/_authenticated/owner/alerts/index'
+import { Route as AuthenticatedManagerUsersIndexImport } from './routes/_authenticated/manager/users/index'
+import { Route as AuthenticatedManagerUserActivityIndexImport } from './routes/_authenticated/manager/user-activity/index'
+import { Route as AuthenticatedManagerOverviewIndexImport } from './routes/_authenticated/manager/overview/index'
+import { Route as AuthenticatedManagerNotificationsIndexImport } from './routes/_authenticated/manager/notifications/index'
+import { Route as AuthenticatedManagerAlertsIndexImport } from './routes/_authenticated/manager/alerts/index'
+import { Route as AuthenticatedDeveloperTicketsIndexImport } from './routes/_authenticated/developer/tickets/index'
+import { Route as AuthenticatedDeveloperOverviewIndexImport } from './routes/_authenticated/developer/overview/index'
+import { Route as AuthenticatedDeveloperImpersonationIndexImport } from './routes/_authenticated/developer/impersonation/index'
+import { Route as AuthenticatedDeveloperActivityIndexImport } from './routes/_authenticated/developer/activity/index'
 import { Route as AuthenticatedTrainerTrainingProgressIndexImport } from './routes/_authenticated/trainer/training/progress/index'
+import { Route as AuthenticatedOwnerAnalyticsSalesIndexImport } from './routes/_authenticated/owner/analytics/sales/index'
+import { Route as AuthenticatedOwnerAnalyticsRetentionIndexImport } from './routes/_authenticated/owner/analytics/retention/index'
 
 // Create Virtual Routes
 
@@ -410,6 +427,111 @@ const AuthenticatedTrainerTrainingIndexRoute =
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
+const AuthenticatedOwnerUsersIndexRoute =
+  AuthenticatedOwnerUsersIndexImport.update({
+    id: '/owner/users/',
+    path: '/owner/users/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerUserActivityIndexRoute =
+  AuthenticatedOwnerUserActivityIndexImport.update({
+    id: '/owner/user-activity/',
+    path: '/owner/user-activity/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerRolesIndexRoute =
+  AuthenticatedOwnerRolesIndexImport.update({
+    id: '/owner/roles/',
+    path: '/owner/roles/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerOverviewIndexRoute =
+  AuthenticatedOwnerOverviewIndexImport.update({
+    id: '/owner/overview/',
+    path: '/owner/overview/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerNotificationsIndexRoute =
+  AuthenticatedOwnerNotificationsIndexImport.update({
+    id: '/owner/notifications/',
+    path: '/owner/notifications/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerAlertsIndexRoute =
+  AuthenticatedOwnerAlertsIndexImport.update({
+    id: '/owner/alerts/',
+    path: '/owner/alerts/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedManagerUsersIndexRoute =
+  AuthenticatedManagerUsersIndexImport.update({
+    id: '/manager/users/',
+    path: '/manager/users/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedManagerUserActivityIndexRoute =
+  AuthenticatedManagerUserActivityIndexImport.update({
+    id: '/manager/user-activity/',
+    path: '/manager/user-activity/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedManagerOverviewIndexRoute =
+  AuthenticatedManagerOverviewIndexImport.update({
+    id: '/manager/overview/',
+    path: '/manager/overview/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedManagerNotificationsIndexRoute =
+  AuthenticatedManagerNotificationsIndexImport.update({
+    id: '/manager/notifications/',
+    path: '/manager/notifications/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedManagerAlertsIndexRoute =
+  AuthenticatedManagerAlertsIndexImport.update({
+    id: '/manager/alerts/',
+    path: '/manager/alerts/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedDeveloperTicketsIndexRoute =
+  AuthenticatedDeveloperTicketsIndexImport.update({
+    id: '/developer/tickets/',
+    path: '/developer/tickets/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedDeveloperOverviewIndexRoute =
+  AuthenticatedDeveloperOverviewIndexImport.update({
+    id: '/developer/overview/',
+    path: '/developer/overview/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedDeveloperImpersonationIndexRoute =
+  AuthenticatedDeveloperImpersonationIndexImport.update({
+    id: '/developer/impersonation/',
+    path: '/developer/impersonation/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedDeveloperActivityIndexRoute =
+  AuthenticatedDeveloperActivityIndexImport.update({
+    id: '/developer/activity/',
+    path: '/developer/activity/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
 const AuthenticatedParentSettingsAccountIndexLazyRoute =
   AuthenticatedParentSettingsAccountIndexLazyImport.update({
     id: '/parent/settings/account/',
@@ -425,6 +547,20 @@ const AuthenticatedTrainerTrainingProgressIndexRoute =
   AuthenticatedTrainerTrainingProgressIndexImport.update({
     id: '/trainer/training/progress/',
     path: '/trainer/training/progress/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerAnalyticsSalesIndexRoute =
+  AuthenticatedOwnerAnalyticsSalesIndexImport.update({
+    id: '/owner/analytics/sales/',
+    path: '/owner/analytics/sales/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedOwnerAnalyticsRetentionIndexRoute =
+  AuthenticatedOwnerAnalyticsRetentionIndexImport.update({
+    id: '/owner/analytics/retention/',
+    path: '/owner/analytics/retention/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
@@ -600,6 +736,111 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedUsersIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/developer/activity/': {
+      id: '/_authenticated/developer/activity/'
+      path: '/developer/activity'
+      fullPath: '/developer/activity'
+      preLoaderRoute: typeof AuthenticatedDeveloperActivityIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/developer/impersonation/': {
+      id: '/_authenticated/developer/impersonation/'
+      path: '/developer/impersonation'
+      fullPath: '/developer/impersonation'
+      preLoaderRoute: typeof AuthenticatedDeveloperImpersonationIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/developer/overview/': {
+      id: '/_authenticated/developer/overview/'
+      path: '/developer/overview'
+      fullPath: '/developer/overview'
+      preLoaderRoute: typeof AuthenticatedDeveloperOverviewIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/developer/tickets/': {
+      id: '/_authenticated/developer/tickets/'
+      path: '/developer/tickets'
+      fullPath: '/developer/tickets'
+      preLoaderRoute: typeof AuthenticatedDeveloperTicketsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/manager/alerts/': {
+      id: '/_authenticated/manager/alerts/'
+      path: '/manager/alerts'
+      fullPath: '/manager/alerts'
+      preLoaderRoute: typeof AuthenticatedManagerAlertsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/manager/notifications/': {
+      id: '/_authenticated/manager/notifications/'
+      path: '/manager/notifications'
+      fullPath: '/manager/notifications'
+      preLoaderRoute: typeof AuthenticatedManagerNotificationsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/manager/overview/': {
+      id: '/_authenticated/manager/overview/'
+      path: '/manager/overview'
+      fullPath: '/manager/overview'
+      preLoaderRoute: typeof AuthenticatedManagerOverviewIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/manager/user-activity/': {
+      id: '/_authenticated/manager/user-activity/'
+      path: '/manager/user-activity'
+      fullPath: '/manager/user-activity'
+      preLoaderRoute: typeof AuthenticatedManagerUserActivityIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/manager/users/': {
+      id: '/_authenticated/manager/users/'
+      path: '/manager/users'
+      fullPath: '/manager/users'
+      preLoaderRoute: typeof AuthenticatedManagerUsersIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/alerts/': {
+      id: '/_authenticated/owner/alerts/'
+      path: '/owner/alerts'
+      fullPath: '/owner/alerts'
+      preLoaderRoute: typeof AuthenticatedOwnerAlertsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/notifications/': {
+      id: '/_authenticated/owner/notifications/'
+      path: '/owner/notifications'
+      fullPath: '/owner/notifications'
+      preLoaderRoute: typeof AuthenticatedOwnerNotificationsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/overview/': {
+      id: '/_authenticated/owner/overview/'
+      path: '/owner/overview'
+      fullPath: '/owner/overview'
+      preLoaderRoute: typeof AuthenticatedOwnerOverviewIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/roles/': {
+      id: '/_authenticated/owner/roles/'
+      path: '/owner/roles'
+      fullPath: '/owner/roles'
+      preLoaderRoute: typeof AuthenticatedOwnerRolesIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/user-activity/': {
+      id: '/_authenticated/owner/user-activity/'
+      path: '/owner/user-activity'
+      fullPath: '/owner/user-activity'
+      preLoaderRoute: typeof AuthenticatedOwnerUserActivityIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/users/': {
+      id: '/_authenticated/owner/users/'
+      path: '/owner/users'
+      fullPath: '/owner/users'
+      preLoaderRoute: typeof AuthenticatedOwnerUsersIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/trainer/training/': {
       id: '/_authenticated/trainer/training/'
       path: '/trainer/training'
@@ -670,6 +911,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedParentReportsIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/owner/analytics/retention/': {
+      id: '/_authenticated/owner/analytics/retention/'
+      path: '/owner/analytics/retention'
+      fullPath: '/owner/analytics/retention'
+      preLoaderRoute: typeof AuthenticatedOwnerAnalyticsRetentionIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/owner/analytics/sales/': {
+      id: '/_authenticated/owner/analytics/sales/'
+      path: '/owner/analytics/sales'
+      fullPath: '/owner/analytics/sales'
+      preLoaderRoute: typeof AuthenticatedOwnerAnalyticsSalesIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/trainer/training/progress/': {
       id: '/_authenticated/trainer/training/progress/'
       path: '/trainer/training/progress'
@@ -723,6 +978,21 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
+  AuthenticatedDeveloperActivityIndexRoute: typeof AuthenticatedDeveloperActivityIndexRoute
+  AuthenticatedDeveloperImpersonationIndexRoute: typeof AuthenticatedDeveloperImpersonationIndexRoute
+  AuthenticatedDeveloperOverviewIndexRoute: typeof AuthenticatedDeveloperOverviewIndexRoute
+  AuthenticatedDeveloperTicketsIndexRoute: typeof AuthenticatedDeveloperTicketsIndexRoute
+  AuthenticatedManagerAlertsIndexRoute: typeof AuthenticatedManagerAlertsIndexRoute
+  AuthenticatedManagerNotificationsIndexRoute: typeof AuthenticatedManagerNotificationsIndexRoute
+  AuthenticatedManagerOverviewIndexRoute: typeof AuthenticatedManagerOverviewIndexRoute
+  AuthenticatedManagerUserActivityIndexRoute: typeof AuthenticatedManagerUserActivityIndexRoute
+  AuthenticatedManagerUsersIndexRoute: typeof AuthenticatedManagerUsersIndexRoute
+  AuthenticatedOwnerAlertsIndexRoute: typeof AuthenticatedOwnerAlertsIndexRoute
+  AuthenticatedOwnerNotificationsIndexRoute: typeof AuthenticatedOwnerNotificationsIndexRoute
+  AuthenticatedOwnerOverviewIndexRoute: typeof AuthenticatedOwnerOverviewIndexRoute
+  AuthenticatedOwnerRolesIndexRoute: typeof AuthenticatedOwnerRolesIndexRoute
+  AuthenticatedOwnerUserActivityIndexRoute: typeof AuthenticatedOwnerUserActivityIndexRoute
+  AuthenticatedOwnerUsersIndexRoute: typeof AuthenticatedOwnerUsersIndexRoute
   AuthenticatedTrainerTrainingIndexRoute: typeof AuthenticatedTrainerTrainingIndexRoute
   AuthenticatedParentAcademicIndexLazyRoute: typeof AuthenticatedParentAcademicIndexLazyRoute
   AuthenticatedParentAchievementsIndexLazyRoute: typeof AuthenticatedParentAchievementsIndexLazyRoute
@@ -733,6 +1003,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedParentNotificationsIndexLazyRoute: typeof AuthenticatedParentNotificationsIndexLazyRoute
   AuthenticatedParentOverviewIndexLazyRoute: typeof AuthenticatedParentOverviewIndexLazyRoute
   AuthenticatedParentReportsIndexLazyRoute: typeof AuthenticatedParentReportsIndexLazyRoute
+  AuthenticatedOwnerAnalyticsRetentionIndexRoute: typeof AuthenticatedOwnerAnalyticsRetentionIndexRoute
+  AuthenticatedOwnerAnalyticsSalesIndexRoute: typeof AuthenticatedOwnerAnalyticsSalesIndexRoute
   AuthenticatedTrainerTrainingProgressIndexRoute: typeof AuthenticatedTrainerTrainingProgressIndexRoute
   AuthenticatedParentSettingsAccountIndexLazyRoute: typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
@@ -746,6 +1018,30 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
+  AuthenticatedDeveloperActivityIndexRoute:
+    AuthenticatedDeveloperActivityIndexRoute,
+  AuthenticatedDeveloperImpersonationIndexRoute:
+    AuthenticatedDeveloperImpersonationIndexRoute,
+  AuthenticatedDeveloperOverviewIndexRoute:
+    AuthenticatedDeveloperOverviewIndexRoute,
+  AuthenticatedDeveloperTicketsIndexRoute:
+    AuthenticatedDeveloperTicketsIndexRoute,
+  AuthenticatedManagerAlertsIndexRoute: AuthenticatedManagerAlertsIndexRoute,
+  AuthenticatedManagerNotificationsIndexRoute:
+    AuthenticatedManagerNotificationsIndexRoute,
+  AuthenticatedManagerOverviewIndexRoute:
+    AuthenticatedManagerOverviewIndexRoute,
+  AuthenticatedManagerUserActivityIndexRoute:
+    AuthenticatedManagerUserActivityIndexRoute,
+  AuthenticatedManagerUsersIndexRoute: AuthenticatedManagerUsersIndexRoute,
+  AuthenticatedOwnerAlertsIndexRoute: AuthenticatedOwnerAlertsIndexRoute,
+  AuthenticatedOwnerNotificationsIndexRoute:
+    AuthenticatedOwnerNotificationsIndexRoute,
+  AuthenticatedOwnerOverviewIndexRoute: AuthenticatedOwnerOverviewIndexRoute,
+  AuthenticatedOwnerRolesIndexRoute: AuthenticatedOwnerRolesIndexRoute,
+  AuthenticatedOwnerUserActivityIndexRoute:
+    AuthenticatedOwnerUserActivityIndexRoute,
+  AuthenticatedOwnerUsersIndexRoute: AuthenticatedOwnerUsersIndexRoute,
   AuthenticatedTrainerTrainingIndexRoute:
     AuthenticatedTrainerTrainingIndexRoute,
   AuthenticatedParentAcademicIndexLazyRoute:
@@ -766,6 +1062,10 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
     AuthenticatedParentOverviewIndexLazyRoute,
   AuthenticatedParentReportsIndexLazyRoute:
     AuthenticatedParentReportsIndexLazyRoute,
+  AuthenticatedOwnerAnalyticsRetentionIndexRoute:
+    AuthenticatedOwnerAnalyticsRetentionIndexRoute,
+  AuthenticatedOwnerAnalyticsSalesIndexRoute:
+    AuthenticatedOwnerAnalyticsSalesIndexRoute,
   AuthenticatedTrainerTrainingProgressIndexRoute:
     AuthenticatedTrainerTrainingProgressIndexRoute,
   AuthenticatedParentSettingsAccountIndexLazyRoute:
@@ -799,6 +1099,21 @@ export interface FileRoutesByFullPath {
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/developer/activity': typeof AuthenticatedDeveloperActivityIndexRoute
+  '/developer/impersonation': typeof AuthenticatedDeveloperImpersonationIndexRoute
+  '/developer/overview': typeof AuthenticatedDeveloperOverviewIndexRoute
+  '/developer/tickets': typeof AuthenticatedDeveloperTicketsIndexRoute
+  '/manager/alerts': typeof AuthenticatedManagerAlertsIndexRoute
+  '/manager/notifications': typeof AuthenticatedManagerNotificationsIndexRoute
+  '/manager/overview': typeof AuthenticatedManagerOverviewIndexRoute
+  '/manager/user-activity': typeof AuthenticatedManagerUserActivityIndexRoute
+  '/manager/users': typeof AuthenticatedManagerUsersIndexRoute
+  '/owner/alerts': typeof AuthenticatedOwnerAlertsIndexRoute
+  '/owner/notifications': typeof AuthenticatedOwnerNotificationsIndexRoute
+  '/owner/overview': typeof AuthenticatedOwnerOverviewIndexRoute
+  '/owner/roles': typeof AuthenticatedOwnerRolesIndexRoute
+  '/owner/user-activity': typeof AuthenticatedOwnerUserActivityIndexRoute
+  '/owner/users': typeof AuthenticatedOwnerUsersIndexRoute
   '/trainer/training': typeof AuthenticatedTrainerTrainingIndexRoute
   '/parent/academic': typeof AuthenticatedParentAcademicIndexLazyRoute
   '/parent/achievements': typeof AuthenticatedParentAchievementsIndexLazyRoute
@@ -809,6 +1124,8 @@ export interface FileRoutesByFullPath {
   '/parent/notifications': typeof AuthenticatedParentNotificationsIndexLazyRoute
   '/parent/overview': typeof AuthenticatedParentOverviewIndexLazyRoute
   '/parent/reports': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/owner/analytics/retention': typeof AuthenticatedOwnerAnalyticsRetentionIndexRoute
+  '/owner/analytics/sales': typeof AuthenticatedOwnerAnalyticsSalesIndexRoute
   '/trainer/training/progress': typeof AuthenticatedTrainerTrainingProgressIndexRoute
   '/parent/settings/account': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
@@ -835,6 +1152,21 @@ export interface FileRoutesByTo {
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/developer/activity': typeof AuthenticatedDeveloperActivityIndexRoute
+  '/developer/impersonation': typeof AuthenticatedDeveloperImpersonationIndexRoute
+  '/developer/overview': typeof AuthenticatedDeveloperOverviewIndexRoute
+  '/developer/tickets': typeof AuthenticatedDeveloperTicketsIndexRoute
+  '/manager/alerts': typeof AuthenticatedManagerAlertsIndexRoute
+  '/manager/notifications': typeof AuthenticatedManagerNotificationsIndexRoute
+  '/manager/overview': typeof AuthenticatedManagerOverviewIndexRoute
+  '/manager/user-activity': typeof AuthenticatedManagerUserActivityIndexRoute
+  '/manager/users': typeof AuthenticatedManagerUsersIndexRoute
+  '/owner/alerts': typeof AuthenticatedOwnerAlertsIndexRoute
+  '/owner/notifications': typeof AuthenticatedOwnerNotificationsIndexRoute
+  '/owner/overview': typeof AuthenticatedOwnerOverviewIndexRoute
+  '/owner/roles': typeof AuthenticatedOwnerRolesIndexRoute
+  '/owner/user-activity': typeof AuthenticatedOwnerUserActivityIndexRoute
+  '/owner/users': typeof AuthenticatedOwnerUsersIndexRoute
   '/trainer/training': typeof AuthenticatedTrainerTrainingIndexRoute
   '/parent/academic': typeof AuthenticatedParentAcademicIndexLazyRoute
   '/parent/achievements': typeof AuthenticatedParentAchievementsIndexLazyRoute
@@ -845,6 +1177,8 @@ export interface FileRoutesByTo {
   '/parent/notifications': typeof AuthenticatedParentNotificationsIndexLazyRoute
   '/parent/overview': typeof AuthenticatedParentOverviewIndexLazyRoute
   '/parent/reports': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/owner/analytics/retention': typeof AuthenticatedOwnerAnalyticsRetentionIndexRoute
+  '/owner/analytics/sales': typeof AuthenticatedOwnerAnalyticsSalesIndexRoute
   '/trainer/training/progress': typeof AuthenticatedTrainerTrainingProgressIndexRoute
   '/parent/settings/account': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
@@ -875,6 +1209,21 @@ export interface FileRoutesById {
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
+  '/_authenticated/developer/activity/': typeof AuthenticatedDeveloperActivityIndexRoute
+  '/_authenticated/developer/impersonation/': typeof AuthenticatedDeveloperImpersonationIndexRoute
+  '/_authenticated/developer/overview/': typeof AuthenticatedDeveloperOverviewIndexRoute
+  '/_authenticated/developer/tickets/': typeof AuthenticatedDeveloperTicketsIndexRoute
+  '/_authenticated/manager/alerts/': typeof AuthenticatedManagerAlertsIndexRoute
+  '/_authenticated/manager/notifications/': typeof AuthenticatedManagerNotificationsIndexRoute
+  '/_authenticated/manager/overview/': typeof AuthenticatedManagerOverviewIndexRoute
+  '/_authenticated/manager/user-activity/': typeof AuthenticatedManagerUserActivityIndexRoute
+  '/_authenticated/manager/users/': typeof AuthenticatedManagerUsersIndexRoute
+  '/_authenticated/owner/alerts/': typeof AuthenticatedOwnerAlertsIndexRoute
+  '/_authenticated/owner/notifications/': typeof AuthenticatedOwnerNotificationsIndexRoute
+  '/_authenticated/owner/overview/': typeof AuthenticatedOwnerOverviewIndexRoute
+  '/_authenticated/owner/roles/': typeof AuthenticatedOwnerRolesIndexRoute
+  '/_authenticated/owner/user-activity/': typeof AuthenticatedOwnerUserActivityIndexRoute
+  '/_authenticated/owner/users/': typeof AuthenticatedOwnerUsersIndexRoute
   '/_authenticated/trainer/training/': typeof AuthenticatedTrainerTrainingIndexRoute
   '/_authenticated/parent/academic/': typeof AuthenticatedParentAcademicIndexLazyRoute
   '/_authenticated/parent/achievements/': typeof AuthenticatedParentAchievementsIndexLazyRoute
@@ -885,6 +1234,8 @@ export interface FileRoutesById {
   '/_authenticated/parent/notifications/': typeof AuthenticatedParentNotificationsIndexLazyRoute
   '/_authenticated/parent/overview/': typeof AuthenticatedParentOverviewIndexLazyRoute
   '/_authenticated/parent/reports/': typeof AuthenticatedParentReportsIndexLazyRoute
+  '/_authenticated/owner/analytics/retention/': typeof AuthenticatedOwnerAnalyticsRetentionIndexRoute
+  '/_authenticated/owner/analytics/sales/': typeof AuthenticatedOwnerAnalyticsSalesIndexRoute
   '/_authenticated/trainer/training/progress/': typeof AuthenticatedTrainerTrainingProgressIndexRoute
   '/_authenticated/parent/settings/account/': typeof AuthenticatedParentSettingsAccountIndexLazyRoute
 }
@@ -915,6 +1266,21 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/tasks'
     | '/users'
+    | '/developer/activity'
+    | '/developer/impersonation'
+    | '/developer/overview'
+    | '/developer/tickets'
+    | '/manager/alerts'
+    | '/manager/notifications'
+    | '/manager/overview'
+    | '/manager/user-activity'
+    | '/manager/users'
+    | '/owner/alerts'
+    | '/owner/notifications'
+    | '/owner/overview'
+    | '/owner/roles'
+    | '/owner/user-activity'
+    | '/owner/users'
     | '/trainer/training'
     | '/parent/academic'
     | '/parent/achievements'
@@ -925,6 +1291,8 @@ export interface FileRouteTypes {
     | '/parent/notifications'
     | '/parent/overview'
     | '/parent/reports'
+    | '/owner/analytics/retention'
+    | '/owner/analytics/sales'
     | '/trainer/training/progress'
     | '/parent/settings/account'
   fileRoutesByTo: FileRoutesByTo
@@ -950,6 +1318,21 @@ export interface FileRouteTypes {
     | '/settings'
     | '/tasks'
     | '/users'
+    | '/developer/activity'
+    | '/developer/impersonation'
+    | '/developer/overview'
+    | '/developer/tickets'
+    | '/manager/alerts'
+    | '/manager/notifications'
+    | '/manager/overview'
+    | '/manager/user-activity'
+    | '/manager/users'
+    | '/owner/alerts'
+    | '/owner/notifications'
+    | '/owner/overview'
+    | '/owner/roles'
+    | '/owner/user-activity'
+    | '/owner/users'
     | '/trainer/training'
     | '/parent/academic'
     | '/parent/achievements'
@@ -960,6 +1343,8 @@ export interface FileRouteTypes {
     | '/parent/notifications'
     | '/parent/overview'
     | '/parent/reports'
+    | '/owner/analytics/retention'
+    | '/owner/analytics/sales'
     | '/trainer/training/progress'
     | '/parent/settings/account'
   id:
@@ -988,6 +1373,21 @@ export interface FileRouteTypes {
     | '/_authenticated/settings/'
     | '/_authenticated/tasks/'
     | '/_authenticated/users/'
+    | '/_authenticated/developer/activity/'
+    | '/_authenticated/developer/impersonation/'
+    | '/_authenticated/developer/overview/'
+    | '/_authenticated/developer/tickets/'
+    | '/_authenticated/manager/alerts/'
+    | '/_authenticated/manager/notifications/'
+    | '/_authenticated/manager/overview/'
+    | '/_authenticated/manager/user-activity/'
+    | '/_authenticated/manager/users/'
+    | '/_authenticated/owner/alerts/'
+    | '/_authenticated/owner/notifications/'
+    | '/_authenticated/owner/overview/'
+    | '/_authenticated/owner/roles/'
+    | '/_authenticated/owner/user-activity/'
+    | '/_authenticated/owner/users/'
     | '/_authenticated/trainer/training/'
     | '/_authenticated/parent/academic/'
     | '/_authenticated/parent/achievements/'
@@ -998,6 +1398,8 @@ export interface FileRouteTypes {
     | '/_authenticated/parent/notifications/'
     | '/_authenticated/parent/overview/'
     | '/_authenticated/parent/reports/'
+    | '/_authenticated/owner/analytics/retention/'
+    | '/_authenticated/owner/analytics/sales/'
     | '/_authenticated/trainer/training/progress/'
     | '/_authenticated/parent/settings/account/'
   fileRoutesById: FileRoutesById
@@ -1067,6 +1469,21 @@ export const routeTree = rootRoute
         "/_authenticated/help-center/",
         "/_authenticated/tasks/",
         "/_authenticated/users/",
+        "/_authenticated/developer/activity/",
+        "/_authenticated/developer/impersonation/",
+        "/_authenticated/developer/overview/",
+        "/_authenticated/developer/tickets/",
+        "/_authenticated/manager/alerts/",
+        "/_authenticated/manager/notifications/",
+        "/_authenticated/manager/overview/",
+        "/_authenticated/manager/user-activity/",
+        "/_authenticated/manager/users/",
+        "/_authenticated/owner/alerts/",
+        "/_authenticated/owner/notifications/",
+        "/_authenticated/owner/overview/",
+        "/_authenticated/owner/roles/",
+        "/_authenticated/owner/user-activity/",
+        "/_authenticated/owner/users/",
         "/_authenticated/trainer/training/",
         "/_authenticated/parent/academic/",
         "/_authenticated/parent/achievements/",
@@ -1077,6 +1494,8 @@ export const routeTree = rootRoute
         "/_authenticated/parent/notifications/",
         "/_authenticated/parent/overview/",
         "/_authenticated/parent/reports/",
+        "/_authenticated/owner/analytics/retention/",
+        "/_authenticated/owner/analytics/sales/",
         "/_authenticated/trainer/training/progress/",
         "/_authenticated/parent/settings/account/"
       ]
@@ -1169,6 +1588,66 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/users/index.lazy.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/developer/activity/": {
+      "filePath": "_authenticated/developer/activity/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/developer/impersonation/": {
+      "filePath": "_authenticated/developer/impersonation/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/developer/overview/": {
+      "filePath": "_authenticated/developer/overview/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/developer/tickets/": {
+      "filePath": "_authenticated/developer/tickets/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/manager/alerts/": {
+      "filePath": "_authenticated/manager/alerts/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/manager/notifications/": {
+      "filePath": "_authenticated/manager/notifications/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/manager/overview/": {
+      "filePath": "_authenticated/manager/overview/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/manager/user-activity/": {
+      "filePath": "_authenticated/manager/user-activity/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/manager/users/": {
+      "filePath": "_authenticated/manager/users/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/alerts/": {
+      "filePath": "_authenticated/owner/alerts/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/notifications/": {
+      "filePath": "_authenticated/owner/notifications/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/overview/": {
+      "filePath": "_authenticated/owner/overview/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/roles/": {
+      "filePath": "_authenticated/owner/roles/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/user-activity/": {
+      "filePath": "_authenticated/owner/user-activity/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/users/": {
+      "filePath": "_authenticated/owner/users/index.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/trainer/training/": {
       "filePath": "_authenticated/trainer/training/index.tsx",
       "parent": "/_authenticated"
@@ -1207,6 +1686,14 @@ export const routeTree = rootRoute
     },
     "/_authenticated/parent/reports/": {
       "filePath": "_authenticated/parent/reports/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/analytics/retention/": {
+      "filePath": "_authenticated/owner/analytics/retention/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/owner/analytics/sales/": {
+      "filePath": "_authenticated/owner/analytics/sales/index.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/trainer/training/progress/": {

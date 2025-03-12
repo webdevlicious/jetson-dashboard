@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Existing models from schema-proposal.prisma
+model PermissionSet {
+  id          Int          @id @default(autoincrement())
+  resource    String?
+  permissions Permission[]
+
+  @@map("permission_sets")
+}
+
+model User {
+  id                   String               @id @default(cuid())
+  email                String               @unique
+  password             String
+  firstName            String?
+  lastName             String?
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+  roles                Role[]
+  profile              Profile?
+  athlete              Athlete?
+  coach                Coach?
+  scout                Scout?
+  trainer              Trainer?
+  counselor            Counselor?
+  parent               Parent?
+  developer            Developer?
+  sentMessages         Message[]            @relation("MessageSender")
+  receivedMessages     Message[]            @relation("MessageReceiver")
+  notifications        Notification[]
+  teamMemberships      TeamMember[]
+  createdTeams         Team[]               @relation("TeamCreator")
+  activityLogs         UserActivityLog[]    @relation("UserActivityLogs")
+  impersonationLogs    ImpersonationLog[]   @relation("ImpersonatedUser")
+  impersonatorLogs     ImpersonationLog[]   @relation("ImpersonatorUser")
+  supportTickets       SupportTicket[]      @relation("TicketCreator")
+  assignedTickets      SupportTicket[]      @relation("TicketAssignee")
+  supportTicketUpdates TicketUpdate[]
+
+  @@map("users")
+}
+
+model Profile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio         String?
+  phoneNumber String?
+  address     String?
+  city        String?
+  state       String?
+  zipCode     String?
+  country     String?
+  avatarUrl   String?
+  socialLinks Json?    // Store social media links as JSON
+  preferences Json?    // Store user preferences as JSON
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("profiles")
+}
+
+model Role {
+  id          String       @id @default(cuid())
+  name        String       @unique
+  users       User[]
+  permissions Permission[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("roles")
+}
+
+model Permission {
+  id              String         @id @default(cuid())
+  action          String         // e.g., "read", "write", "delete", "impersonate"
+  resource        String         // e.g., "athlete_profile", "team", "message", "user"
+  roles           Role[]
+  permissionSet   PermissionSet? @relation(fields: [permissionSetId], references: [id])
+  permissionSetId Int?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@unique([action, resource])
+  @@map("permissions")
+}
+
+// New Developer model for platform management
+model Developer {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialization      String?  // e.g., "frontend", "backend", "fullstack", "devops"
+  level               String?  // e.g., "junior", "mid", "senior", "lead"
+  canImpersonate      Boolean  @default(false)
+  canManageTickets    Boolean  @default(false)
+  canViewActivityLogs Boolean  @default(false)
+  canAccessDebugTools Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("developers")
+}
+
+// User Activity Logging
+model UserActivityLog {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation("UserActivityLogs", fields: [userId], references: [id])
+  action       String   // e.g., "login", "logout", "update_profile", "create_team"
+  resourceType String?  // e.g., "user", "team", "message"
+  resourceId   String?  // ID of the affected resource
+  details      Json?    // Additional details about the action
+  ipAddress    String?
+  userAgent    String?
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("user_activity_logs")
+}
+
+// User Impersonation Logging
+model ImpersonationLog {
+  id              String   @id @default(cuid())
+  impersonatorId  String
+  impersonator    User     @relation("ImpersonatorUser", fields: [impersonatorId], references: [id])
+  impersonatedId  String
+  impersonated    User     @relation("ImpersonatedUser", fields: [impersonatedId], references: [id])
+  reason          String   // Reason for impersonation
+  ticketId        String?  // Related support ticket if applicable
+  startedAt       DateTime @default(now())
+  endedAt         DateTime?
+  ipAddress       String?
+  actions         Json?    // Log of actions performed during impersonation
+
+  @@index([impersonatorId])
+  @@index([impersonatedId])
+  @@index([startedAt])
+  @@map("impersonation_logs")
+}
+
+// Support Ticket System
+model SupportTicket {
+  id          String         @id @default(cuid())
+  title       String
+  description String
+  status      TicketStatus   @default(OPEN)
+  priority    TicketPriority @default(MEDIUM)
+  category    String         // e.g., "bug", "feature_request", "account_issue"
+  creatorId   String
+  creator     User           @relation("TicketCreator", fields: [creatorId], references: [id])
+  assigneeId  String?
+  assignee    User?          @relation("TicketAssignee", fields: [assigneeId], references: [id])
+  updates     TicketUpdate[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  resolvedAt  DateTime?
+
+  @@index([status])
+  @@index([priority])
+  @@index([creatorId])
+  @@index([assigneeId])
+  @@map("support_tickets")
+}
+
+model TicketUpdate {
+  id        String   @id @default(cuid())
+  ticketId  String
+  ticket    SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  message   String
+  attachments Json?   // URLs to any attached files
+  createdAt DateTime @default(now())
+
+  @@index([ticketId])
+  @@index([userId])
+  @@map("ticket_updates")
+}
+
+// Enums for Support Ticket System
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  WAITING_ON_CLIENT
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// Extend ResourceType enum to include developer dashboard resources
+enum ResourceType {
+  ATHLETE_PROFILE
+  ACADEMIC_RECORDS
+  ATHLETIC_STATS
+  RECRUITMENT_STATUS
+  COLLEGE_PROGRAMS
+  MESSAGES
+  USER_RELATIONSHIPS
+  SYSTEM_SETTINGS
+  USER_IMPERSONATION
+  SUPPORT_TICKETS
+  ACTIVITY_LOGS
+  DEVELOPER_TOOLS
+}
+
+// Existing models from schema-proposal.prisma would continue below
+// For brevity, they are not included here
